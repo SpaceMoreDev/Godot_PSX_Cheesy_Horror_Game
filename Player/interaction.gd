@@ -33,12 +33,14 @@ func _physics_process(delta):
 
 	var result = space_state.intersect_ray(query)
 	if result:
-		if result.collider.is_in_group("Interactables"):
+		var obj :Node3D = result.collider
+			
+		if obj is InteractableBase:
 			if not can_interact:
 				can_interact = true
+			if Input.is_action_just_pressed("interact"):
+				obj.Interact()
 			
-			if Input.is_action_just_pressed("ui_accept"):
-				print("touched: %s horaay"% result.collider.name)
 		else:
 			if can_interact:
 				can_interact = false
