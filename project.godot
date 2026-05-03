@@ -17,7 +17,6 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="First Person Starter"
 run/main_scene="res://Levels/Main/L_Main.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
-config/icon="res://icon.png"
 
 [global_group]
 
