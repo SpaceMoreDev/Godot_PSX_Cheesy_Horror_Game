@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsw8c4y6ylwl4" path="res://Player/Head.gd" id="1_enjfg"]
 [ext_resource type="Texture2D" uid="uid://dywj4xpwdgrjn" path="res://Assets/t_mp5sd.png" id="2_irtxf"]
+[ext_resource type="Script" uid="uid://de1b6c4vqtk4c" path="res://Player/animation_tree_conditions.gd" id="3_oowo0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oowo0"]
 shading_mode = 2
@@ -53,6 +54,35 @@ bind/4/name = &"charging_handle"
 bind/4/bone = -1
 bind/4/pose = Transform3D(0.7071068, -6.596557e-08, -0.7071067, 9.32894e-08, 1.0000001, 1.0658143e-14, 0.7071067, -6.596557e-08, 0.7071068, 0.085429445, 0.3004992, -0.09583096)
 
+[sub_resource type="Animation" id="Animation_xfbis"]
+resource_name = "Firing"
+length = 0.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.216, -0.245, -0.165), Vector3(0.216, -0.245, -0.065), Vector3(0.216, -0.245, -0.165)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415927, 0), Vector3(-0.06981317, -3.1415927, 0), Vector3(0, -3.1415927, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_irtxf"]
 resource_name = "Idle"
 length = 1.9666702
@@ -96,7 +126,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.16666667, 0.33333334, 0.5, 0.6666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector3(0.071, -0.185, -0.165), Vector3(0.116, -0.255, -0.165), Vector3(0.136, -0.195, -0.165), Vector3(0.116, -0.255, -0.165), Vector3(0.071, -0.185, -0.165)]
+"values": [Vector3(0.216, -0.245, -0.165), Vector3(0.181, -0.26, -0.165), Vector3(0.216, -0.25, -0.165), Vector3(0.181, -0.26, -0.165), Vector3(0.216, -0.245, -0.165)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -105,10 +135,10 @@ tracks/1/path = NodePath("SMG_GUN:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0.44505897, -2.4783676, 0), Vector3(0.24609143, -3.0072024, 0), Vector3(0.44505897, -2.4783676, 0)]
+"values": [Vector3(0, -3.1415927, 0), Vector3(0, -3.1415927, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_oowo0"]
@@ -138,39 +168,116 @@ tracks/1/keys = {
 "values": [Vector3(0, -2.5220008, 0)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_adwmk"]
-_data = {
-&"Idle": SubResource("Animation_irtxf"),
-&"Move": SubResource("Animation_adwmk"),
-&"RESET": SubResource("Animation_oowo0")
+[sub_resource type="Animation" id="Animation_3wvon"]
+resource_name = "aiming"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0.216, -0.245, -0.165), Vector3(0, -0.15, 0.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -3.1415927, 0), Vector3(0, -3.1415927, 0)]
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_irtxf"]
-animation = &"Idle"
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_adwmk"]
+_data = {
+&"Firing": SubResource("Animation_xfbis"),
+&"Idle": SubResource("Animation_irtxf"),
+&"Move": SubResource("Animation_adwmk"),
+&"RESET": SubResource("Animation_oowo0"),
+&"aiming": SubResource("Animation_3wvon")
+}
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oowo0"]
+animation = &"Firing"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xfbis"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_adwmk"]
+animation = &"Idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3wvon"]
 animation = &"Move"
 
-[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_adwmk"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_irtxf")
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_xfbis"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_adwmk")
 blend_point_0/pos = 0.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_oowo0")
+blend_point_1/node = SubResource("AnimationNodeAnimation_3wvon")
 blend_point_1/pos = 1.0
 min_space = 0.0
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_qy1gf"]
-graph_offset = Vector2(-266.16806, 57.685802)
-nodes/output/position = Vector2(208, 176)
-nodes/move_blend/node = SubResource("AnimationNodeBlendSpace1D_adwmk")
-nodes/move_blend/position = Vector2(-48, 160)
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_bdho6"]
+graph_offset = Vector2(-290.4, -26.4)
+nodes/move_blend/node = SubResource("AnimationNodeBlendSpace1D_xfbis")
+nodes/move_blend/position = Vector2(32, 80)
 node_connections = [&"output", 0, &"move_blend"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oowo0"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qy1gf"]
+advance_mode = 2
+advance_expression = "is_firing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bdho6"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "!is_firing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i6cme"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "!is_grounded"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rl845"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "is_grounded"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_adwmk"]
+advance_mode = 2
+advance_expression = "is_firing"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3wvon"]
+xfade_time = 0.1
+advance_mode = 2
+advance_expression = "!is_firing && !is_grounded"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rl845"]
+states/End/position = Vector2(887.68005, 97.44889)
+states/Firing/node = SubResource("AnimationNodeAnimation_oowo0")
+states/Firing/position = Vector2(747.60004, 98.41112)
+states/Jump/node = SubResource("AnimationNodeAnimation_xfbis")
+states/Jump/position = Vector2(502, 193.6)
+states/Movement/node = SubResource("AnimationNodeBlendTree_bdho6")
+states/Movement/position = Vector2(510, 100.32)
+states/Start/position = Vector2(292, 101.26898)
+transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_oowo0"), "Movement", "Firing", SubResource("AnimationNodeStateMachineTransition_qy1gf"), "Firing", "Movement", SubResource("AnimationNodeStateMachineTransition_bdho6"), "Movement", "Jump", SubResource("AnimationNodeStateMachineTransition_i6cme"), "Jump", "Movement", SubResource("AnimationNodeStateMachineTransition_rl845"), "Jump", "Firing", SubResource("AnimationNodeStateMachineTransition_adwmk"), "Firing", "Jump", SubResource("AnimationNodeStateMachineTransition_3wvon")]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i6cme"]
-graph_offset = Vector2(147.35493, -33.845604)
+graph_offset = Vector2(-209.17549, -7.0950804)
 nodes/output/position = Vector2(672, 80)
-nodes/movement/node = SubResource("AnimationNodeBlendTree_qy1gf")
-nodes/movement/position = Vector2(352, 80)
-node_connections = [&"output", 0, &"movement"]
+nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_rl845")
+nodes/StateMachine/position = Vector2(368, 64)
+node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Head" type="Node3D" unique_id=955601237]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
@@ -230,9 +337,9 @@ skin = SubResource("Skin_hsls4")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1659226797]
 libraries/ = SubResource("AnimationLibrary_adwmk")
-autoplay = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." unique_id=374367399]
 tree_root = SubResource("AnimationNodeBlendTree_i6cme")
 anim_player = NodePath("../AnimationPlayer")
-parameters/movement/move_blend/blend_position = 0.0
+parameters/StateMachine/Movement/move_blend/blend_position = 0.0
+script = ExtResource("3_oowo0")

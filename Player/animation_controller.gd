@@ -12,8 +12,21 @@ class_name AnimController
 
 func _physics_process(delta: float) -> void:
 	var remapped_vel : float = remap(controller.velocity.length(),0.0,17.0,0.0,1.0)
-	print("velocity: %f" % remapped_vel)
+	#print("velocity: %f" % remapped_vel)
+	
+	if Input.is_action_just_pressed("aiming"):
+		AnimTree.is_aiming = true
+	if Input.is_action_just_released("aiming"):
+		AnimTree.is_aiming = false
+	
+	if Input.is_action_just_pressed("firing"):
+		AnimTree.is_firing = true
+	if Input.is_action_just_released("firing"):
+		AnimTree.is_firing = false
+	
 	
 	if controller.is_on_floor():
-		AnimTree.set("parameters/movement/move_blend/blend_position" , remapped_vel)
-	
+		AnimTree.is_grounded = true
+		AnimTree.set("parameters/StateMachine/Movement/move_blend/blend_position" , remapped_vel)
+	else:
+		AnimTree.is_grounded = false
