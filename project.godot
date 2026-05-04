@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="First Person Starter"
+config/name="PSX JAM"
 run/main_scene="res://Levels/Main/L_Main.tscn"
 config/features=PackedStringArray("4.6", "Mobile")
 
@@ -22,8 +22,8 @@ config/features=PackedStringArray("4.6", "Mobile")
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/size/mode=3
 window/stretch/mode="viewport"
+window/stretch/aspect="keep_height"
 
 [global_group]
 
@@ -107,7 +107,13 @@ interact={
 3d_physics/layer_1="Objects"
 3d_physics/layer_2="Player"
 
+[physics]
+
+common/physics_interpolation=true
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+shading/overrides/force_vertex_shading=true
 anti_aliasing/quality/msaa_3d=1
