@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://b8drbos167vf8"]
 
 [ext_resource type="Script" uid="uid://bsw8c4y6ylwl4" path="res://Player/Head.gd" id="1_enjfg"]
+[ext_resource type="Script" uid="uid://b1k6wl6kqjaqc" path="res://Player/shooting.gd" id="2_adwmk"]
 [ext_resource type="Texture2D" uid="uid://dywj4xpwdgrjn" path="res://Assets/t_mp5sd.png" id="2_irtxf"]
 [ext_resource type="Script" uid="uid://de1b6c4vqtk4c" path="res://Player/animation_tree_conditions.gd" id="3_oowo0"]
 
@@ -8,6 +9,7 @@
 shading_mode = 2
 albedo_texture = ExtResource("2_irtxf")
 texture_filter = 0
+disable_receive_shadows = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_d1e1d"]
 resource_name = "Material.001"
@@ -56,31 +58,45 @@ bind/4/pose = Transform3D(0.7071068, -6.596557e-08, -0.7071067, 9.32894e-08, 1.0
 
 [sub_resource type="Animation" id="Animation_xfbis"]
 resource_name = "Firing"
-length = 0.2
+length = 0.1
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/path = NodePath("Hand/SMG_GUN:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0.216, -0.245, -0.165), Vector3(0.216, -0.245, -0.065), Vector3(0.216, -0.245, -0.165)]
+"values": [Vector3(0.216, -0.245, -0.165), Vector3(0.216, -0.245, -0.105), Vector3(0.216, -0.245, -0.165)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/path = NodePath("Hand/SMG_GUN:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.2),
+"times": PackedFloat32Array(0, 0.033333335, 0.1),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector3(0, -3.1415927, 0), Vector3(-0.06981317, -3.1415927, 0), Vector3(0, -3.1415927, 0)]
+"values": [Vector3(0, -3.1415927, 0), Vector3(-0.017453292, -3.1415927, 0), Vector3(0, -3.1415927, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hand/Shooting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"FIRE"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_irtxf"]
@@ -90,7 +106,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/path = NodePath("Hand/SMG_GUN:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -102,7 +118,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/path = NodePath("Hand/SMG_GUN:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -119,7 +135,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/path = NodePath("Hand/SMG_GUN:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -131,7 +147,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/path = NodePath("Hand/SMG_GUN:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -146,7 +162,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/path = NodePath("Hand/SMG_GUN:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -158,14 +174,14 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/path = NodePath("Hand/SMG_GUN:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(0, -2.5220008, 0)]
+"values": [Vector3(0, -3.1415927, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_3wvon"]
@@ -174,7 +190,7 @@ length = 0.25
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SMG_GUN:position")
+tracks/0/path = NodePath("Hand/SMG_GUN:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -186,7 +202,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("SMG_GUN:rotation")
+tracks/1/path = NodePath("Hand/SMG_GUN:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -196,20 +212,38 @@ tracks/1/keys = {
 "values": [Vector3(0, -3.1415927, 0), Vector3(0, -3.1415927, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_qy1gf"]
+resource_name = "jump"
+length = 2.0000033
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hand/SMG_GUN:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6333333, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.08726646, -3.1415927, 0), Vector3(-0.06981317, -3.1415927, 0), Vector3(-0.08726646, -3.1415927, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_adwmk"]
 _data = {
 &"Firing": SubResource("Animation_xfbis"),
 &"Idle": SubResource("Animation_irtxf"),
 &"Move": SubResource("Animation_adwmk"),
 &"RESET": SubResource("Animation_oowo0"),
-&"aiming": SubResource("Animation_3wvon")
+&"aiming": SubResource("Animation_3wvon"),
+&"jump": SubResource("Animation_qy1gf")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oowo0"]
 animation = &"Firing"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xfbis"]
-animation = &"Idle"
+animation = &"jump"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_adwmk"]
 animation = &"Idle"
@@ -230,9 +264,6 @@ nodes/move_blend/node = SubResource("AnimationNodeBlendSpace1D_xfbis")
 nodes/move_blend/position = Vector2(32, 80)
 node_connections = [&"output", 0, &"move_blend"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oowo0"]
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qy1gf"]
 advance_mode = 2
 advance_expression = "is_firing"
@@ -240,10 +271,10 @@ advance_expression = "is_firing"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bdho6"]
 xfade_time = 0.1
 advance_mode = 2
-advance_expression = "!is_firing"
+advance_expression = "!is_firing && is_grounded"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_i6cme"]
-xfade_time = 0.1
+xfade_time = 0.2
 advance_mode = 2
 advance_expression = "!is_grounded"
 
@@ -253,6 +284,7 @@ advance_mode = 2
 advance_expression = "is_grounded"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_adwmk"]
+xfade_time = 0.02
 advance_mode = 2
 advance_expression = "is_firing"
 
@@ -261,22 +293,25 @@ xfade_time = 0.1
 advance_mode = 2
 advance_expression = "!is_firing && !is_grounded"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oowo0"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_rl845"]
 states/End/position = Vector2(887.68005, 97.44889)
 states/Firing/node = SubResource("AnimationNodeAnimation_oowo0")
 states/Firing/position = Vector2(747.60004, 98.41112)
 states/Jump/node = SubResource("AnimationNodeAnimation_xfbis")
-states/Jump/position = Vector2(502, 193.6)
+states/Jump/position = Vector2(510.16, 193.6)
 states/Movement/node = SubResource("AnimationNodeBlendTree_bdho6")
 states/Movement/position = Vector2(510, 100.32)
 states/Start/position = Vector2(292, 101.26898)
-transitions = ["Start", "Movement", SubResource("AnimationNodeStateMachineTransition_oowo0"), "Movement", "Firing", SubResource("AnimationNodeStateMachineTransition_qy1gf"), "Firing", "Movement", SubResource("AnimationNodeStateMachineTransition_bdho6"), "Movement", "Jump", SubResource("AnimationNodeStateMachineTransition_i6cme"), "Jump", "Movement", SubResource("AnimationNodeStateMachineTransition_rl845"), "Jump", "Firing", SubResource("AnimationNodeStateMachineTransition_adwmk"), "Firing", "Jump", SubResource("AnimationNodeStateMachineTransition_3wvon")]
+transitions = ["Movement", "Firing", SubResource("AnimationNodeStateMachineTransition_qy1gf"), "Firing", "Movement", SubResource("AnimationNodeStateMachineTransition_bdho6"), "Movement", "Jump", SubResource("AnimationNodeStateMachineTransition_i6cme"), "Jump", "Movement", SubResource("AnimationNodeStateMachineTransition_rl845"), "Jump", "Firing", SubResource("AnimationNodeStateMachineTransition_adwmk"), "Firing", "Jump", SubResource("AnimationNodeStateMachineTransition_3wvon"), "Start", "Movement", SubResource("AnimationNodeStateMachineTransition_oowo0")]
+graph_offset = Vector2(152, 54)
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_i6cme"]
-graph_offset = Vector2(-209.17549, -7.0950804)
 nodes/output/position = Vector2(672, 80)
 nodes/StateMachine/node = SubResource("AnimationNodeStateMachine_rl845")
-nodes/StateMachine/position = Vector2(368, 64)
+nodes/StateMachine/position = Vector2(368, 80)
 node_connections = [&"output", 0, &"StateMachine"]
 
 [node name="Head" type="Node3D" unique_id=955601237]
@@ -287,13 +322,18 @@ script = ExtResource("1_enjfg")
 current = true
 fov = 60.0
 
-[node name="SMG_GUN" type="Node3D" parent="." unique_id=1900977857]
-transform = Transform3D(-0.8141155, 0, -0.58070296, 0, 1, 0, 0.58070296, 0, -0.8141155, 0.216, -0.245, -0.165)
+[node name="Hand" type="Node3D" parent="." unique_id=1287922249]
 
-[node name="Armature" type="Node3D" parent="SMG_GUN" unique_id=334278553]
+[node name="Shooting" type="Node3D" parent="Hand" unique_id=374026570]
+script = ExtResource("2_adwmk")
+
+[node name="SMG_GUN" type="Node3D" parent="Hand" unique_id=1900977857]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0.216, -0.245, -0.165)
+
+[node name="Armature" type="Node3D" parent="Hand/SMG_GUN" unique_id=334278553]
 transform = Transform3D(1, 0, 0, 0, -1.1920929e-07, 0.99999994, 0, -0.99999994, -1.1920929e-07, 0, 0, 0)
 
-[node name="Skeleton3D" type="Skeleton3D" parent="SMG_GUN/Armature" unique_id=1333461319]
+[node name="Skeleton3D" type="Skeleton3D" parent="Hand/SMG_GUN/Armature" unique_id=1333461319]
 bones/0/name = "root"
 bones/0/parent = -1
 bones/0/rest = Transform3D(3.5762787e-07, 8.7621316e-08, 0.99999994, 0, 0.99999994, -8.762132e-08, -0.99999994, 2.8421708e-14, 3.5762787e-07, 0, 0, 0)
@@ -330,15 +370,18 @@ bones/4/position = Vector3(-0.12817046, -0.3004992, 0.007354935)
 bones/4/rotation = Quaternion(2.6183093e-09, -0.3826836, -1.0845385e-09, 0.9238795)
 bones/4/scale = Vector3(0.99999994, 1, 0.99999994)
 
-[node name="Cylinder_002" type="MeshInstance3D" parent="SMG_GUN/Armature/Skeleton3D" unique_id=55212225]
+[node name="Cylinder_002" type="MeshInstance3D" parent="Hand/SMG_GUN/Armature/Skeleton3D" unique_id=55212225]
 material_override = SubResource("StandardMaterial3D_oowo0")
+cast_shadow = 0
 mesh = SubResource("ArrayMesh_vpn1n")
 skin = SubResource("Skin_hsls4")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1659226797]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Hand/SMG_GUN" unique_id=1659226797]
+root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_adwmk")
 
-[node name="AnimationTree" type="AnimationTree" parent="." unique_id=374367399]
+[node name="AnimationTree" type="AnimationTree" parent="Hand/SMG_GUN" unique_id=374367399]
+root_node = NodePath("../../..")
 tree_root = SubResource("AnimationNodeBlendTree_i6cme")
 anim_player = NodePath("../AnimationPlayer")
 parameters/StateMachine/Movement/move_blend/blend_position = 0.0

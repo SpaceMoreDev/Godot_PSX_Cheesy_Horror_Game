@@ -1,0 +1,123 @@
+[gd_scene format=3 uid="uid://b2wg3ytqaaa8c"]
+
+[ext_resource type="Texture2D" uid="uid://cbqdf1irt7g26" path="res://Assets/fire_sheet.png" id="2_gp4dy"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnc8w"]
+transparency = 1
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_rnc8w"]
+material = SubResource("StandardMaterial3D_rnc8w")
+radial_segments = 6
+rings = 3
+
+[sub_resource type="Curve" id="Curve_gp4dy"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, -360), 0.0, 1008.0, 0, 0, Vector2(1, 360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_rnc8w"]
+_data = [Vector2(0, 0.2872644), 0.0, 0.71273553, 0, 1, Vector2(1, 1), 0.71273553, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_rnc8w"]
+offsets = PackedFloat32Array(0, 0.29665738, 0.82033426, 1)
+colors = PackedColorArray(0.6666667, 0.5058824, 0.06666667, 0.20392157, 5.670257, 4.9779806, 1.8094859, 1, 0.6386727, 0.6315207, 1.92523e-07, 1, 0.6392157, 0.6313726, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_124gw"]
+atlas = ExtResource("2_gp4dy")
+region = Rect2(0, 0, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oo3lq"]
+atlas = ExtResource("2_gp4dy")
+region = Rect2(54, 0, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8llps"]
+atlas = ExtResource("2_gp4dy")
+region = Rect2(108, 0, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewgtt"]
+atlas = ExtResource("2_gp4dy")
+region = Rect2(162, 0, 54, 60)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u13rd"]
+atlas = ExtResource("2_gp4dy")
+region = Rect2(216, 0, 54, 60)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fn1nx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_124gw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oo3lq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8llps")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewgtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u13rd")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]
+
+[node name="Decal" type="Node3D" unique_id=1185005357]
+
+[node name="CPUParticles3D" type="CPUParticles3D" parent="." unique_id=2141193020]
+visible = false
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 0.13
+mesh = SubResource("SphereMesh_rnc8w")
+spread = 126.62
+gravity = Vector3(0, 2, 0)
+angular_velocity_curve = SubResource("Curve_gp4dy")
+scale_amount_min = 0.1
+scale_amount_max = 0.3
+scale_amount_curve = SubResource("Curve_rnc8w")
+color_ramp = SubResource("Gradient_rnc8w")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="." unique_id=404315648]
+transform = Transform3D(1, 0, 0, 0, 0.9659258, -0.25881904, 0, 0.25881904, 0.9659258, 0, 0.302, 0.08699924)
+layers = 512
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_fn1nx")
+autoplay = "default"
+
+[node name="AnimatedSprite3D4" type="AnimatedSprite3D" parent="." unique_id=1754948793]
+transform = Transform3D(1, 0, 0, 0, 0.96592593, 0.25881907, 0, -0.25881907, 0.96592593, 0, 0.3, -0.07694256)
+layers = 512
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_fn1nx")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="." unique_id=587341591]
+transform = Transform3D(-4.222196e-08, -0.25881904, 0.9659258, -1.131334e-08, 0.9659258, 0.25881904, -1, 0, -4.371139e-08, -0.08553839, 0.3, 0)
+layers = 512
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_fn1nx")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="." unique_id=1775364633]
+transform = Transform3D(-4.222196e-08, 0.25881907, 0.96592593, 1.1313341e-08, 0.96592593, -0.25881907, -1, 0, -4.371139e-08, 0.08007383, 0.3, 0)
+layers = 512
+modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_fn1nx")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0

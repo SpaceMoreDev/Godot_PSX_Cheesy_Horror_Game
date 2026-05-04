@@ -13,69 +13,55 @@ shader = ExtResource("5_6ysni")
 shader_parameter/viewport_size = Vector2(640, 480)
 shader_parameter/virtual_resolution = Vector2(320, 240)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_3mea3"]
-atlas = ExtResource("4_ddoul")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6ysni"]
-atlas = ExtResource("4_ddoul")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vlldt"]
-atlas = ExtResource("4_ddoul")
-region = Rect2(32, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_s1rgi"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j23h2"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0j2ni"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(0, 0, 16, 16)
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0k0e"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5wa8t"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(32, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p7tob"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(48, 0, 16, 16)
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dm7nj"]
 atlas = ExtResource("4_ddoul")
-region = Rect2(64, 0, 16, 16)
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mea3"]
+atlas = ExtResource("4_ddoul")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5gs"]
+atlas = ExtResource("4_ddoul")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sa4y"]
+atlas = ExtResource("4_ddoul")
+region = Rect2(128, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_j23h2"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_3mea3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6ysni")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vlldt")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_s1rgi")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j23h2")
-}],
-"loop": false,
-"name": &"default",
-"speed": 15.0
 }, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0j2ni")
 }, {
@@ -84,12 +70,26 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5wa8t")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
 }, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7tob")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dm7nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sa4y")
 }],
 "loop": false,
 "name": &"interact",
@@ -97,6 +97,7 @@ animations = [{
 }]
 
 [node name="Player" unique_id=1117564067 instance=ExtResource("1_t1jcr")]
+speed = 5
 
 [node name="Head" parent="." index="1" unique_id=315625654 instance=ExtResource("2_41iu1")]
 

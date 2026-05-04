@@ -14,7 +14,7 @@ var can_interact:bool:
 	get:
 		return _interact_state
 
-const RAY_LENGTH = 1000
+const RAY_LENGTH = 5
 @export_node_path("AnimatedSprite2D") var Crosshair_path := NodePath("../CanvasLayer/Center/CrosshairSprite")
 @onready var CHSprite : AnimatedSprite2D = get_node(Crosshair_path)
 
@@ -41,6 +41,7 @@ func _physics_process(delta):
 			if Input.is_action_just_pressed("interact"):
 				obj.Interact()
 			
-		else:
-			if can_interact:
+			
+	else:
+		if can_interact:
 				can_interact = false

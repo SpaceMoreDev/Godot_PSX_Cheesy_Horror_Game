@@ -8,6 +8,7 @@ class_name MovementController
 @export var deceleration := 10
 @export_range(0.0, 1.0, 0.05) var air_control := 0.3
 @export var jump_height := 10
+
 var direction := Vector3()
 var input_axis := Vector2()
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.
