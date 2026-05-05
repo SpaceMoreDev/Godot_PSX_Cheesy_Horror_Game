@@ -1,7 +1,7 @@
 extends CharacterBody3D
 class_name MovementController
 
-
+@export var canmove = true
 @export var gravity_multiplier := 3.0
 @export var speed := 10
 @export var acceleration := 8
@@ -18,6 +18,9 @@ var input_axis := Vector2()
 
 # Called every physics tick. 'delta' is constant
 func _physics_process(delta: float) -> void:
+	if !canmove: 
+		return
+	
 	input_axis = Input.get_vector(&"move_back", &"move_forward",
 			&"move_left", &"move_right")
 	

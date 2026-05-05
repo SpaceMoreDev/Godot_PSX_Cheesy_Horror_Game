@@ -67,16 +67,17 @@ func _spawn_decal(result): # will use pooling
 	
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("firing"):
-		is_shooting = true
-	if Input.is_action_just_released("firing"):
-		is_shooting = false
-	
-	if Input.is_action_just_pressed("aiming"):
-		zoomed_in = true
-	if Input.is_action_just_released("aiming"):
-		zoomed_in = false
-		#cam.fov = 60;
+	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+		if Input.is_action_just_pressed("firing"):
+			is_shooting = true
+		if Input.is_action_just_released("firing"):
+			is_shooting = false
+		
+		if Input.is_action_just_pressed("aiming"):
+			zoomed_in = true
+		if Input.is_action_just_released("aiming"):
+			zoomed_in = false
+			#cam.fov = 60;
 
 var zoomed_in = false
 func _physics_process(delta: float) -> void:
