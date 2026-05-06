@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://505ax2kncymd"]
+
+[ext_resource type="Texture2D" uid="uid://dniivvpmykmqs" path="res://Assets/Cutscenes/C1/BG.png" id="1_sb8jg"]
+[ext_resource type="Texture2D" uid="uid://cc4g6utji5evu" path="res://Assets/Cutscenes/C1/ROAE.png" id="2_33sem"]
+[ext_resource type="Texture2D" uid="uid://b4wurx17a061d" path="res://Assets/Cutscenes/C1/Man.png" id="2_vltdc"]
+[ext_resource type="Texture2D" uid="uid://cqwa7sxgdsunh" path="res://Assets/Cutscenes/C1/hair1_Man.png" id="3_iysgs"]
+[ext_resource type="Texture2D" uid="uid://bfo2sdn6luhiv" path="res://Assets/Cutscenes/C1/hair2_Man.png" id="4_1rpvy"]
+[ext_resource type="Texture2D" uid="uid://cbc55b4kv74sf" path="res://Assets/Cutscenes/C1/hair3_Man.png" id="5_6omm5"]
+
+[node name="Node2D" type="Node2D" unique_id=314210641]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=875489427]
+
+[node name="BG" type="TextureRect" parent="CanvasLayer" unique_id=496590303]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_sb8jg")
+expand_mode = 1
+
+[node name="BG2" type="TextureRect" parent="CanvasLayer" unique_id=1663229079]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_33sem")
+expand_mode = 1
+
+[node name="Man4" type="TextureRect" parent="CanvasLayer" unique_id=1959533907]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vltdc")
+expand_mode = 1
+
+[node name="Man3" type="TextureRect" parent="CanvasLayer" unique_id=1493942735]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_6omm5")
+expand_mode = 1
+
+[node name="Man2" type="TextureRect" parent="CanvasLayer" unique_id=1580926267]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_1rpvy")
+expand_mode = 1
+
+[node name="Man1" type="TextureRect" parent="CanvasLayer" unique_id=331618026]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_iysgs")
+expand_mode = 1

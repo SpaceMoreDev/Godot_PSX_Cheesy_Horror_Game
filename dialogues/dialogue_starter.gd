@@ -10,7 +10,7 @@ func _ready() -> void:
 
 func _on_body_enter(body):
 	if body is CharacterBody3D:
-		print("hey there handsome!")
+		
 		GlobalData.Player.canmove = false
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		DialogueManager.show_dialogue_balloon(dialogue_to_start, "start")
