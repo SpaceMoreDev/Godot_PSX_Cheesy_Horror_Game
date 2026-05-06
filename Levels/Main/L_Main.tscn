@@ -8,9 +8,6 @@
 [ext_resource type="Material" uid="uid://sofvlrq3jmka" path="res://Levels/Main/Materials/M_Dark.tres" id="4_m7xar"]
 [ext_resource type="Texture2D" uid="uid://hselxeqxccdr" path="res://Assets/car6.png" id="7_3bgcu"]
 [ext_resource type="ArrayMesh" uid="uid://c1bjr0yownjlr" path="res://Assets/Car6.obj" id="8_e310h"]
-[ext_resource type="Script" uid="uid://sioqx8ds4c78" path="res://dialogues/dialogue_starter.gd" id="9_e310h"]
-[ext_resource type="Resource" uid="uid://c8a7b1ev5at35" path="res://dialogues/test.dialogue" id="10_ygqxw"]
-[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_cto5u"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wgm2j"]
 size = Vector3(4, 0.5, 4)
@@ -39,9 +36,6 @@ texture_filter = 0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bgcu"]
 size = Vector3(2.480438, 1.668232, 6.359838)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_ygqxw"]
-size = Vector3(3.0820313, 3.1345215, 3.4970703)
 
 [node name="L_Main" type="Node3D" unique_id=1242348972]
 script = ExtResource("1_km1jj")
@@ -117,24 +111,3 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="car2" unique_id=1231649156]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.834116, 0.02743411)
 shape = SubResource("BoxShape3D_3bgcu")
-
-[node name="Area3D" type="Area3D" parent="." unique_id=1864694017 node_paths=PackedStringArray("diaLabel")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.303595, 2.1211486, 0)
-collision_mask = 3
-script = ExtResource("9_e310h")
-diaLabel = NodePath("CanvasLayer/DialogueLabel")
-dialogue_to_start = ExtResource("10_ygqxw")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1705592213]
-shape = SubResource("BoxShape3D_ygqxw")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="Area3D" unique_id=1338974851]
-
-[node name="DialogueLabel" type="RichTextLabel" parent="Area3D/CanvasLayer" unique_id=1749965423]
-offset_left = 116.0
-offset_top = 349.0
-offset_right = 479.0
-offset_bottom = 443.0
-script = ExtResource("11_cto5u")
-skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
-metadata/_custom_type_script = "uid://g32um0mltv5d"

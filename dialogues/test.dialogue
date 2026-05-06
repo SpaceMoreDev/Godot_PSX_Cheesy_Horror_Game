@@ -1,11 +1,21 @@
 ~ start
-Ahmed: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
+Ahmed: [[Hi|Hello|Howdy]], this is some dialogue.[set GlobalData.dialogue_sequence = 0]
+Nathan: first stage. [set GlobalData.dialogue_sequence = 1]
+
+Nathan: second stage. [set GlobalData.dialogue_sequence = 2]
+
+Nathan: third stage. [set GlobalData.dialogue_sequence = 3]
+
+Me: The Voices..
+Me: they wont stop!
+
+- Embrace the darkness
+- Resist the darkness => END
+	set GlobalData.dialogue_sequence = 4
+	Me: I can see him
+Me: STOP!
 - Start again => start
 - End the conversation => END
-Nathan: For more information see the online documentation.
-=> END
+~ END
+Me: Alas..
+do GlobalData.ChangetoScene(1)

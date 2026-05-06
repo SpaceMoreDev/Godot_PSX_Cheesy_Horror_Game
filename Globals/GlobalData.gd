@@ -1,6 +1,14 @@
 extends Node
 
 @export var Player : MovementController
+@export var dialogue_sequence := 0
+var levels : Array[String] = [
+	"res://Intro.tscn",
+	"res://Levels/Main/L_Main.tscn"
+]
 
-func _ready() -> void:
-	Player = get_tree().get_first_node_in_group("Player") as MovementController
+func ChangetoScene(index : int):
+	if levels[index]:
+		get_tree().change_scene_to_file(levels[index])
+	else:
+		printerr("!!!wrong level index!!!")

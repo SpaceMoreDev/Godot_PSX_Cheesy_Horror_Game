@@ -1,15 +1,15 @@
-extends Node3D
+extends Node
 
 #-----------------SCENE--SCRIPT------------------#
 #    Close your game faster by clicking 'Esc'    #
 #   Change mouse mode by clicking 'Shift + F1'   #
 #------------------------------------------------#
-
+@export var mode := Input.MOUSE_MODE_CAPTURED
 @export var fast_close := true
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	Input.set_mouse_mode(mode)
 	
 	if !OS.is_debug_build():
 		fast_close = false
