@@ -1,21 +1,23 @@
 ~ start
-Ahmed: [[Hi|Hello|Howdy]], this is some dialogue.[set GlobalData.dialogue_sequence = 0]
-Nathan: first stage. [set GlobalData.dialogue_sequence = 1]
+Me: [[Hi|Hello|Howdy]], this is some dialogue.[set GlobalData.dialogue_sequence = 0]
+Darkness: first stage. [set GlobalData.dialogue_sequence = 1]
 
-Nathan: second stage. [set GlobalData.dialogue_sequence = 2]
+Darkness: second stage. [set GlobalData.dialogue_sequence = 2]
 
-Nathan: third stage. [set GlobalData.dialogue_sequence = 3]
+Darkness: third stage. [set GlobalData.dialogue_sequence = 3]
 
 Me: The Voices..
 Me: they wont stop!
 
 - Embrace the darkness
-- Resist the darkness => END
 	set GlobalData.dialogue_sequence = 4
-	Me: I can see him
+	Me: NOOOO! [speed=0.5]
+	Me: ARGH!
+- Resist the darkness => END
+	Me: I MUST resist!
 Me: STOP!
 - Start again => start
 - End the conversation => END
 ~ END
 Me: Alas..
-do GlobalData.ChangetoScene(1)
+do _end_level()

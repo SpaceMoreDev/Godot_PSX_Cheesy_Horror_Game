@@ -8,4 +8,8 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	DialogueManager.show_dialogue_balloon(dialogue_to_start, "start")
+	DialogueManager.show_dialogue_balloon(dialogue_to_start, "start", [self])
+func _end_level():
+	$CanvasLayer2/AnimationPlayer.play_backwards("Level_start")
+	await $CanvasLayer2/AnimationPlayer.animation_finished
+	GlobalData.ChangetoScene(1)

@@ -1,24 +1,25 @@
 extends Node3D
 class_name PlayerInteraction
 
-var _interact_state : bool = false
-
 var can_interact:bool:
 	set(val):
-		_interact_state = val
+		controller.is_interacting = val
 		if CHSprite:
 			if val == false:
 				CHSprite.play("default")
 			else:
 				CHSprite.play("interact")
 	get:
-		return _interact_state
+		return controller.is_interacting
 
 const RAY_LENGTH = 5
 @export_node_path("AnimatedSprite2D") var Crosshair_path := NodePath("../CanvasLayer/Center/CrosshairSprite")
 @onready var CHSprite : AnimatedSprite2D = get_node(Crosshair_path)
 
-@export_node_path("Node3D") var head_path := NodePath("../Head")
+@export_node_path("MovementController") var c_path := NodePath("../")
+@onready var controller: MovementController = get_node(c_path)
+
+@export_node_path("Head") var head_path := NodePath("../Head")
 @onready var cam: Camera3D = get_node(head_path).cam
 
 

@@ -37,6 +37,43 @@ texture_filter = 0
 [sub_resource type="BoxShape3D" id="BoxShape3D_3bgcu"]
 size = Vector3(2.480438, 1.668232, 6.359838)
 
+[sub_resource type="Animation" id="Animation_3bgcu"]
+resource_name = "Level_start"
+length = 2.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_e310h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ygqxw"]
+_data = {
+&"Level_start": SubResource("Animation_3bgcu"),
+&"RESET": SubResource("Animation_e310h")
+}
+
 [node name="L_Main" type="Node3D" unique_id=1242348972]
 script = ExtResource("1_km1jj")
 
@@ -111,3 +148,18 @@ skeleton = NodePath("../..")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="car2" unique_id=1231649156]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.834116, 0.02743411)
 shape = SubResource("BoxShape3D_3bgcu")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1684424755]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1151225688]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1990540618]
+root_node = NodePath("../ColorRect")
+libraries/ = SubResource("AnimationLibrary_ygqxw")
+autoplay = &"Level_start"

@@ -11,12 +11,29 @@ const RAY_LENGTH = 1000
 
 @export var shoot_type : GunType = GunType.Pistol
 
-@export_node_path("Camera3D") var head_path := NodePath("../../Camera")
-@onready var cam: Camera3D = get_node(head_path)
+@export_node_path("Head") var head_path := NodePath("../../")
+var head: Head
+var controller: MovementController
+var cam: Camera3D
+
 # Preload your decal scene
 const BULLET_DECAL = preload("res://decal.tscn")
-var is_shooting : bool = false
 
+var is_shooting : bool :
+	set(val):
+		if controller:
+			controller.is_shooting = val
+	get:
+		if controller:
+			return controller.is_shooting
+		return false
+
+@export_node_path("AnimatedSprite2D") var Crosshair_path := NodePath("../../../CanvasLayer/Center/CrosshairSprite")
+@onready var CHSprite : AnimatedSprite2D = get_node(Crosshair_path)
+func _enter_tree() -> void:
+	head = get_node(head_path)
+	controller = head.controller
+	cam = head.cam
 func FIRE():
 	if !is_shooting:
 		return
@@ -81,6 +98,8 @@ func _input(event: InputEvent) -> void:
 
 var zoomed_in = false
 func _physics_process(delta: float) -> void:
+	if !cam: return
+	
 	if zoomed_in:
 		cam.set_fov(lerp(cam.fov, 20.0, delta * 8))
 	else:
