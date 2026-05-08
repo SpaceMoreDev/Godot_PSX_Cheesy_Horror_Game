@@ -8,6 +8,7 @@
 [ext_resource type="Material" uid="uid://sofvlrq3jmka" path="res://Levels/Main/Materials/M_Dark.tres" id="4_m7xar"]
 [ext_resource type="Texture2D" uid="uid://hselxeqxccdr" path="res://Assets/car6.png" id="7_3bgcu"]
 [ext_resource type="ArrayMesh" uid="uid://c1bjr0yownjlr" path="res://Assets/Car6.obj" id="8_e310h"]
+[ext_resource type="Script" uid="uid://coqd03ln28ehf" path="res://Enemies/Enemy.gd" id="9_e310h"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_wgm2j"]
 size = Vector3(4, 0.5, 4)
@@ -74,11 +75,20 @@ _data = {
 &"RESET": SubResource("Animation_e310h")
 }
 
+[sub_resource type="BoxMesh" id="BoxMesh_e310h"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_ygqxw"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_cto5u"]
+
 [node name="L_Main" type="Node3D" unique_id=1242348972]
 script = ExtResource("1_km1jj")
 
 [node name="Interactable" parent="." unique_id=339177613 instance=ExtResource("2_ucjps")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 3)
+
+[node name="Interactable2" parent="." unique_id=1064572161 instance=ExtResource("2_ucjps")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.909566, 2, 0.016913414)
 
 [node name="Player" parent="." unique_id=785928097 groups=["Player"] instance=ExtResource("1_qgept")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
@@ -163,3 +173,18 @@ color = Color(0, 0, 0, 1)
 root_node = NodePath("../ColorRect")
 libraries/ = SubResource("AnimationLibrary_ygqxw")
 autoplay = &"Level_start"
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1318084373]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.215401, 1.9233387, 0)
+script = ExtResource("9_e310h")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="CharacterBody3D" unique_id=382776441]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.52158785, -0.5480364)
+mesh = SubResource("BoxMesh_e310h")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D" unique_id=78600073]
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CapsuleMesh_ygqxw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=1452145226]
+shape = SubResource("CapsuleShape3D_cto5u")

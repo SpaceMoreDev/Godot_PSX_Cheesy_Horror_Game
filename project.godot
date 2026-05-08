@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="PSX JAM"
-run/main_scene="uid://505ax2kncymd"
+run/main_scene="uid://d2vgv6ie0v40s"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [autoload]
@@ -27,7 +27,6 @@ GlobalData="*uid://bxuvohplq5tb0"
 
 window/size/viewport_width=640
 window/size/viewport_height=480
-window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
