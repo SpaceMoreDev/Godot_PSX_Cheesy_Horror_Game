@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://d3gfew285xwvr"]
+
+[ext_resource type="Texture2D" uid="uid://n0e3t4oprfwn" path="res://Assets/Characters/skin Color.png" id="1_rkhad"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_rkhad")
+texture_filter = 0

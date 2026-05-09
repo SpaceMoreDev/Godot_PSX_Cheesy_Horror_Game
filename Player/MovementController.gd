@@ -11,6 +11,8 @@ class_name MovementController
 var is_shooting = false
 var is_interacting : bool = false
 
+@export var camera : Head
+
 var direction := Vector3()
 var input_axis := Vector2()
 # Get the gravity from the project settings to be synced with RigidDynamicBody nodes.

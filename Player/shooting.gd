@@ -49,6 +49,11 @@ func FIRE():
 	
 	if result:
 		_spawn_decal(result)
+		
+		var collider = result.collider
+		
+		if collider is Enemy:
+			collider._is_Hit(global_position)
 
 func _spawn_decal(result): # will use pooling
 	var collision_point = result.position

@@ -300,8 +300,9 @@ states/crosshair_shoot/position = Vector2(672.39996, 189.44)
 transitions = ["Start", "crosshair_normal", SubResource("AnimationNodeStateMachineTransition_dm7nj"), "crosshair_normal", "crosshair_interact", SubResource("AnimationNodeStateMachineTransition_3mea3"), "crosshair_interact", "crosshair_shoot", SubResource("AnimationNodeStateMachineTransition_8sa4y"), "crosshair_shoot", "crosshair_normal", SubResource("AnimationNodeStateMachineTransition_3nb2p"), "crosshair_normal", "crosshair_shoot", SubResource("AnimationNodeStateMachineTransition_d7xyo"), "crosshair_interact", "crosshair_interact_to_normal", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "crosshair_interact_to_normal", "crosshair_normal", SubResource("AnimationNodeStateMachineTransition_j23h2"), "crosshair_interact_to_normal", "crosshair_shoot", SubResource("AnimationNodeStateMachineTransition_vlldt")]
 graph_offset = Vector2(-5, 32.53087)
 
-[node name="Player" unique_id=1117564067 instance=ExtResource("1_t1jcr")]
+[node name="Player" unique_id=1117564067 node_paths=PackedStringArray("camera") instance=ExtResource("1_t1jcr")]
 speed = 5
+camera = NodePath("Head")
 
 [node name="Head" parent="." index="1" unique_id=315625654 instance=ExtResource("2_41iu1")]
 
