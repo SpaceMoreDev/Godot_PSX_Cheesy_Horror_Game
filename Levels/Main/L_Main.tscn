@@ -170,3 +170,7 @@ libraries/ = SubResource("AnimationLibrary_ygqxw")
 autoplay = &"Level_start"
 
 [node name="Enemy" parent="." unique_id=791529098 instance=ExtResource("9_e310h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.553713, 0.49631166, -3.518917)
+
+[node name="Enemy2" parent="." unique_id=312154129 instance=ExtResource("9_e310h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.201566, 0.49631166, 8.257685)

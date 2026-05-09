@@ -15,7 +15,7 @@ const JUMP_VELOCITY := 4.5
 var player: MovementController
 
 @export var target_ik: Node3D
-
+@onready var AnimTree : AnimationTree = $AnimationTree
 @onready var nav: NavigationAgent3D = $NavigationAgent3D
 @onready var ik: SkeletonIK3D = $C1/Armature/Skeleton3D/SkeletonIK3D
 
@@ -25,8 +25,9 @@ var state := State.MOVE
 var wait_timer := 0.0
 
 var new_velocity : Vector3 = Vector3.ZERO
-
+var is_hit : bool = false
 var shooting_timer : float = 0.1
+var remapped_vel : float
 
 func _ready() -> void:
 	player = GlobalData.Player
@@ -44,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	var player_look_dir := (-player.camera.global_transform.basis.z).normalized()
 	var forward_dir := -transform.basis.z
 	update_ik(delta)
+	remapped_vel = remap(velocity.length(), 0.00, 10.00, 0.00, 1.00)
+	
 	match state:
 		State.HIT:
 			Hit()
@@ -160,8 +163,10 @@ var shot_angle : float
 func Hit():
 	if hit_wait_ct< hit_wait:
 		hit_wait_ct += get_process_delta_time()
-		rotation.y = lerp_angle(rotation.y, shot_angle, 10 * get_process_delta_time())
+		rotation.y = shot_angle
 	else:
+		is_hit = false
+		
 		
 		hit_wait_ct = 0
 		state = State.WAIT
@@ -169,13 +174,15 @@ func Hit():
 func _is_Hit(shooter : Vector3):
 	var shooterdir = shooter - global_position
 	var angle := atan2(shooterdir.x, shooterdir.z)
+	
+	
 	shot_angle = angle
 	hit_wait_ct = 0
+	is_hit = true
 	
 	velocity = Vector3.ZERO
 	nav.target_position = global_position 
 	state = State.HIT
-	print("is hit")
 
 
 func shoot() -> void:
