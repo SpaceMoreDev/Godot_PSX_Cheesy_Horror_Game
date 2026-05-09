@@ -128,9 +128,9 @@ func update_wait_state(delta: float) -> void:
 		pick_new_position()
 		state = State.MOVE
 
-
+var reachct = 0
 func pick_new_position() -> void:
-	var radius := randf_range(5.0, 20.0)
+	var radius := randf_range(3.0, 6.0)
 	var angle := randf_range(0.0, TAU)
 
 	var offset := Vector3(
@@ -138,8 +138,8 @@ func pick_new_position() -> void:
 		0.0,
 		sin(angle)
 	) * radius
-
 	nav.target_position = player.global_position + offset
+	
 
 
 func update_ik(delta: float) -> void:
