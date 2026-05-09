@@ -186,4 +186,5 @@ func _is_Hit(shooter : Vector3):
 
 
 func shoot() -> void:
-	print("Shoot")
+	#print("Shoot")
+	pass

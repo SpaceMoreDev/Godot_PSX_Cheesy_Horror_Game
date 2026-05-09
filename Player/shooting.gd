@@ -7,6 +7,9 @@ enum GunType
 	Shotgun
 }
 
+var bullet_count : int = 30
+var bullet_pool : Array[Fire]
+
 const RAY_LENGTH = 1000
 
 @export var shoot_type : GunType = GunType.Pistol
@@ -34,6 +37,16 @@ func _enter_tree() -> void:
 	head = get_node(head_path)
 	controller = head.controller
 	cam = head.cam
+
+func _ready() -> void:
+	var ct = 0
+	while ct < bullet_count:
+		var new_bullet : Fire= BULLET_DECAL.instantiate()
+		get_tree().root.add_child.call_deferred(new_bullet)
+		new_bullet.stop()
+		bullet_pool.append(new_bullet)
+		ct+=1
+
 func FIRE():
 	if !is_shooting:
 		return
@@ -58,11 +71,13 @@ func FIRE():
 func _spawn_decal(result): # will use pooling
 	var collision_point = result.position
 	var collision_normal = result.normal
-	var decal = BULLET_DECAL.instantiate()
+	var decal : Fire = _get_from_pool()
 	
-	get_tree().root.add_child(decal)
-
-	decal.global_position = collision_point
+	if not decal:
+		return
+	
+	
+	
 	#decal.get_node("AnimatedSprite3D").play()
 	#decal.get_node("AnimatedSprite3D2").play()
 	var rng = RandomNumberGenerator.new()
@@ -81,12 +96,20 @@ func _spawn_decal(result): # will use pooling
 	
 	var random_angle = rng.randf_range(0.0, TAU)
 	basis = Basis(up, random_angle) * basis
-
-	decal.global_basis = basis
-
-	await get_tree().create_timer(1).timeout
-	decal.queue_free()
 	
+	decal.global_position = collision_point
+	var tar = result.collider
+	if tar is CharacterBody3D:
+		decal.activate( Fire.FIRE_TYPE.BLOOD, basis)
+	else:
+		decal.activate( Fire.FIRE_TYPE.FIRE, basis)
+	
+
+func _get_from_pool() -> Fire:
+	for i in bullet_pool:
+		if !i.active:
+			return i
+	return null
 
 func _input(event: InputEvent) -> void:
 	if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
