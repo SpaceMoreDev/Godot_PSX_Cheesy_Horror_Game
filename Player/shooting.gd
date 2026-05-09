@@ -87,12 +87,12 @@ func _spawn_decal(result): # will use pooling
 	var forward = Vector3.UP
 	
 	var right = up.cross(forward).normalized()
+	
 	if right.is_zero_approx():
 		right = Vector3.RIGHT
 	
 	forward = right.cross(up).normalized()
 	var basis = Basis(right, up , forward)
-
 	
 	var random_angle = rng.randf_range(0.0, TAU)
 	basis = Basis(up, random_angle) * basis

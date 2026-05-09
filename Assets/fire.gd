@@ -36,4 +36,4 @@ func activate(type : FIRE_TYPE = FIRE_TYPE.FIRE, new_basis : Basis = Basis()):
 				global_scale(Vector3.ONE)
 			FIRE_TYPE.BLOOD:
 				i.play("blood")
-				global_scale(Vector3.ONE * 1.2)
+				global_scale(Vector3.ONE * 1.1)

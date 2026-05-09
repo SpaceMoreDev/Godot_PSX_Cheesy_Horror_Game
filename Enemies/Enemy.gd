@@ -1,4 +1,4 @@
-extends CharacterBody3D
+extends CharacterBase
 class_name Enemy
 
 enum State {
@@ -159,11 +159,14 @@ var hit_wait : float = 0.1
 var hit_wait_ct : float = 0.0
 var shooter 
 var shot_angle : float
-
+var hit_pushback : Vector3
 func Hit():
 	if hit_wait_ct< hit_wait:
 		hit_wait_ct += get_process_delta_time()
 		rotation.y = shot_angle
+		
+		velocity = hit_pushback
+		move_and_slide()
 	else:
 		is_hit = false
 		
@@ -183,6 +186,10 @@ func _is_Hit(shooter : Vector3):
 	velocity = Vector3.ZERO
 	nav.target_position = global_position 
 	state = State.HIT
+	
+	var back_dir = (global_position - shooter).normalized() * 2
+	var pushback = Vector3(back_dir.x,0,back_dir.z)
+	hit_pushback = velocity + pushback
 
 
 func shoot() -> void:
