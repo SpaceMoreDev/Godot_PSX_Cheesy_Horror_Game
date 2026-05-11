@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://coyxkd8dqairm"]
+
+[ext_resource type="Texture2D" uid="uid://dg7u8bkkypn4n" path="res://Assets/Map_Textures.png" id="1_p8wf8"]
+
+[resource]
+shading_mode = 2
+albedo_color = Color(0.37413925, 0.37413928, 0.37413922, 1)
+albedo_texture = ExtResource("1_p8wf8")
+texture_filter = 0

@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dx0k253ho2kd4"]
+
+[ext_resource type="Script" uid="uid://d0g3vg1wpiuu7" path="res://BarberShopData/Scripts/Barbershop_core.gd" id="1_5s2mj"]
+[ext_resource type="PackedScene" uid="uid://dbpjeyyam2yht" path="res://BarberShopData/Head.fbx" id="2_qurd5"]
+[ext_resource type="Script" uid="uid://bj0yqm0vix6e3" path="res://BarberShopData/Scripts/CameraControls.gd" id="3_1g6e2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1g6e2"]
+size = Vector3(0.48608398, 0.73535156, 0.6035156)
+
+[node name="BarberShop" type="Node3D" unique_id=1039036297]
+script = ExtResource("1_5s2mj")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=375667062]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=2092007482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3129567, 0)
+shape = SubResource("BoxShape3D_1g6e2")
+
+[node name="Head" parent="Area3D" unique_id=693684444 instance=ExtResource("2_qurd5")]
+
+[node name="Node3D" type="Node3D" parent="Area3D/Head" unique_id=1856479337]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=205098518 node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.45939827, 1.6890314)
+script = ExtResource("3_1g6e2")
+target = NodePath("../Area3D/Head")
+
+[connection signal="mouse_entered" from="Area3D" to="Camera3D" method="_on_area_3d_mouse_entered"]
+[connection signal="mouse_exited" from="Area3D" to="Camera3D" method="_on_area_3d_mouse_exited"]
