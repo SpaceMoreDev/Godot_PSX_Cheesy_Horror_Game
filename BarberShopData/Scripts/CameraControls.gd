@@ -1,5 +1,5 @@
 extends Camera3D
-class_name BarberCamera
+class_name BarberControl
 
 @export_node_path("BarberCore") var core_pass = NodePath("../")
 #@onready var core : BarberCore = get_node(core_pass)
@@ -10,14 +10,15 @@ var vec_to_tar : Vector3 = Vector3.ZERO
 const SPEED : float = 5.0
 var _is_dragging = false
 var _drag_vector := Vector2.ZERO
-var sensitivity := 0.5
+var sensitivity := 2
 var _received_mouse_motion := false
 var can_drag:=false
 var _zoom : float = 0.0
-var _zoom_factor : float = .2
+var _zoom_factor : float = 0.1
 var offset : Vector3 = Vector3.ZERO
 
 func _input(event: InputEvent) -> void:
+	_zoom = 0.0
 	if event is InputEventMouseButton:
 		if event.button_index == MouseButton.MOUSE_BUTTON_WHEEL_UP:
 			_zoom = -_zoom_factor
@@ -25,12 +26,12 @@ func _input(event: InputEvent) -> void:
 			_zoom = _zoom_factor
 		
 		var zoomed_dir =(global_position - target.global_position).normalized() * _zoom
-		if (offset).dot(offset + zoomed_dir) > 0.99:
+		if (offset.normalized()).dot((offset + zoomed_dir).normalized()) > 0.80:
 			offset += zoomed_dir
 			
 		
-		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
-			if event.is_pressed() and can_drag:
+		if event.button_index == MouseButton.MOUSE_BUTTON_RIGHT:
+			if event.is_pressed() :
 				_is_dragging = true
 			elif event.is_released():
 				_is_dragging = false
