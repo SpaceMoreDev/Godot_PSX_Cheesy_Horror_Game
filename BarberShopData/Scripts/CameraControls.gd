@@ -2,7 +2,7 @@ extends Camera3D
 class_name BarberCamera
 
 @export_node_path("BarberCore") var core_pass = NodePath("../")
-@onready var core : BarberCore = get_node(core_pass)
+#@onready var core : BarberCore = get_node(core_pass)
 
 @export var target : Node3D
 var vec_to_tar : Vector3 = Vector3.ZERO
@@ -10,12 +10,25 @@ var vec_to_tar : Vector3 = Vector3.ZERO
 const SPEED : float = 5.0
 var _is_dragging = false
 var _drag_vector := Vector2.ZERO
-var sensitivity := 0.1
+var sensitivity := 0.5
 var _received_mouse_motion := false
 var can_drag:=false
+var _zoom : float = 0.0
+var _zoom_factor : float = .2
+var offset : Vector3 = Vector3.ZERO
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
+		if event.button_index == MouseButton.MOUSE_BUTTON_WHEEL_UP:
+			_zoom = -_zoom_factor
+		elif event.button_index == MouseButton.MOUSE_BUTTON_WHEEL_DOWN:
+			_zoom = _zoom_factor
+		
+		var zoomed_dir =(global_position - target.global_position).normalized() * _zoom
+		if (offset).dot(offset + zoomed_dir) > 0.99:
+			offset += zoomed_dir
+			
+		
 		if event.button_index == MouseButton.MOUSE_BUTTON_LEFT:
 			if event.is_pressed() and can_drag:
 				_is_dragging = true
@@ -34,8 +47,8 @@ func _process(delta: float) -> void:
 	_received_mouse_motion = false
 
 func _ready() -> void:
-	vec_to_tar = target.global_position - global_position
-
+	vec_to_tar = global_position - target.global_position
+	offset = global_position - target.global_position
 
 var anglex := 0.0
 var angley := 0.0
@@ -45,16 +58,15 @@ func _physics_process(delta: float) -> void:
 	
 	var pivot = target.global_position
 	
-	var offset = global_position - pivot
-	
 	offset = offset.rotated(Vector3.UP, anglex)
 	
 	offset = offset.rotated(transform.basis.x, angley)
 	var new_dir =pivot + offset
 	
-	global_position = new_dir
+	global_position = new_dir 
 	
 	look_at(pivot)
+	
 
 
 func _on_area_3d_mouse_entered() -> void:
