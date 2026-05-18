@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dbpjeyyam2yht"
-path="res://.godot/imported/Head.fbx-207dd71d9c9bc502dc39857d2738d816.scn"
+path="res://.godot/imported/Head.fbx-23991b395d048ff8df30a2489b434dcc.scn"
 
 [deps]
 
-source_file="res://BarberShopData/Head.fbx"
-dest_files=["res://.godot/imported/Head.fbx-207dd71d9c9bc502dc39857d2738d816.scn"]
+source_file="res://BarberShopData (depricated)/Head.fbx"
+dest_files=["res://.godot/imported/Head.fbx-23991b395d048ff8df30a2489b434dcc.scn"]
 
 [params]
 

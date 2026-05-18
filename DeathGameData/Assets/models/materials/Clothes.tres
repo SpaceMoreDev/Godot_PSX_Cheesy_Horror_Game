@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://rtldjsk0u4rq"]
+
+[ext_resource type="Texture2D" uid="uid://bj47s1e5x1gdm" path="res://DeathGameData/Assets/models/materials/Pants Color.png" id="1_spkia"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_spkia")

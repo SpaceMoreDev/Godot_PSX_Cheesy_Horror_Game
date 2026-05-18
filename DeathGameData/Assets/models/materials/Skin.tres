@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dhfq1ew5g0yoj"]
+
+[ext_resource type="Texture2D" uid="uid://bd81gqud5uuna" path="res://DeathGameData/Assets/models/materials/Base_skin Color.png" id="1_bl0u7"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_bl0u7")

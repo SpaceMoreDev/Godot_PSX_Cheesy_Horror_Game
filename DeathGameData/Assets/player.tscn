@@ -1,0 +1,361 @@
+[gd_scene format=3 uid="uid://bm6xnc2fyeyob"]
+
+[ext_resource type="Script" uid="uid://plw5gnu31jwn" path="res://Player/MovementController.gd" id="1_mdlcr"]
+[ext_resource type="Script" uid="uid://cw5aospvvf7fp" path="res://Player/interaction.gd" id="2_0dmpc"]
+[ext_resource type="Script" uid="uid://bsw8c4y6ylwl4" path="res://Player/Head.gd" id="3_wtxyt"]
+[ext_resource type="Script" uid="uid://dvpiy7xtc0y0n" path="res://Player/Sprint.gd" id="4_jll8t"]
+[ext_resource type="Shader" uid="uid://kou4s54443c7" path="res://Shaders/psx_postprocess.gdshader" id="5_i0mye"]
+[ext_resource type="Texture2D" uid="uid://b7suvnf1tr621" path="res://Assets/Crosshair-Sheet.png" id="6_fy2ah"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vlldt"]
+shader = ExtResource("5_i0mye")
+shader_parameter/viewport_size = Vector2(640, 480)
+shader_parameter/virtual_resolution = Vector2(320, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlldt"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1rgi"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j23h2"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j2ni"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0k0e"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wa8t"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7tob"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm7nj"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mea3"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7v5gs"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8sa4y"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3nb2p"]
+atlas = ExtResource("6_fy2ah")
+region = Rect2(128, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j23h2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlldt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1rgi")
+}],
+"loop": false,
+"name": &"Shoot",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j23h2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j2ni")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0k0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5wa8t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7tob")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm7nj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mea3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7v5gs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8sa4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3nb2p")
+}],
+"loop": false,
+"name": &"interact",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_vlldt"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_s1rgi"]
+resource_name = "crosshair_interact"
+length = 0.13333668
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center/CrosshairSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"interact"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center/CrosshairSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_v0k0e"]
+resource_name = "crosshair_interact_to_normal"
+length = 0.23333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center/CrosshairSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"interact"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center/CrosshairSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [3, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_0j2ni"]
+resource_name = "crosshair_normal"
+length = 0.03333667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center/CrosshairSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center/CrosshairSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_j23h2"]
+resource_name = "crosshair_shoot"
+length = 0.13333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Center/CrosshairSprite:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"Shoot"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Center/CrosshairSprite:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j23h2"]
+_data = {
+&"RESET": SubResource("Animation_vlldt"),
+&"crosshair_interact": SubResource("Animation_s1rgi"),
+&"crosshair_interact_to_normal": SubResource("Animation_v0k0e"),
+&"crosshair_normal": SubResource("Animation_0j2ni"),
+&"crosshair_shoot": SubResource("Animation_j23h2")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v0k0e"]
+animation = &"crosshair_interact"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vlldt"]
+animation = &"crosshair_interact"
+play_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_5wa8t"]
+animation = &"crosshair_normal"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_p7tob"]
+animation = &"crosshair_shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dm7nj"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3mea3"]
+advance_mode = 2
+advance_expression = "is_interacting && !is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8sa4y"]
+advance_mode = 2
+advance_expression = "is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3nb2p"]
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d7xyo"]
+advance_mode = 2
+advance_expression = "is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_s1rgi"]
+switch_mode = 2
+advance_mode = 2
+advance_expression = "!is_interacting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_j23h2"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vlldt"]
+advance_mode = 2
+advance_expression = "is_shooting"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_0j2ni"]
+states/Start/position = Vector2(230.4, 69.76001)
+states/crosshair_interact/node = SubResource("AnimationNodeAnimation_v0k0e")
+states/crosshair_interact/position = Vector2(254.864, 233.57568)
+states/crosshair_interact_to_normal/node = SubResource("AnimationNodeAnimation_vlldt")
+states/crosshair_interact_to_normal/position = Vector2(255.08, 134.93086)
+states/crosshair_normal/node = SubResource("AnimationNodeAnimation_5wa8t")
+states/crosshair_normal/position = Vector2(532.4, 70.40001)
+states/crosshair_shoot/node = SubResource("AnimationNodeAnimation_p7tob")
+states/crosshair_shoot/position = Vector2(672.39996, 189.44)
+transitions = ["Start", "crosshair_normal", SubResource("AnimationNodeStateMachineTransition_dm7nj"), "crosshair_normal", "crosshair_interact", SubResource("AnimationNodeStateMachineTransition_3mea3"), "crosshair_interact", "crosshair_shoot", SubResource("AnimationNodeStateMachineTransition_8sa4y"), "crosshair_shoot", "crosshair_normal", SubResource("AnimationNodeStateMachineTransition_3nb2p"), "crosshair_normal", "crosshair_shoot", SubResource("AnimationNodeStateMachineTransition_d7xyo"), "crosshair_interact", "crosshair_interact_to_normal", SubResource("AnimationNodeStateMachineTransition_s1rgi"), "crosshair_interact_to_normal", "crosshair_normal", SubResource("AnimationNodeStateMachineTransition_j23h2"), "crosshair_interact_to_normal", "crosshair_shoot", SubResource("AnimationNodeStateMachineTransition_vlldt")]
+graph_offset = Vector2(-5, 32.53087)
+
+[node name="Player" type="CharacterBody3D" unique_id=1136300363 node_paths=PackedStringArray("camera")]
+collision_layer = 2
+collision_mask = 3
+floor_block_on_wall = false
+floor_snap_length = 0.5
+script = ExtResource("1_mdlcr")
+speed = 5
+camera = NodePath("Head")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=269267490]
+shape = SubResource("CapsuleShape3D_fn1rj")
+
+[node name="Interaction" type="Node3D" parent="." unique_id=1257956542]
+script = ExtResource("2_0dmpc")
+
+[node name="Head" type="Node3D" parent="." unique_id=1644199401]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.64, 0)
+script = ExtResource("3_wtxyt")
+
+[node name="Camera" type="Camera3D" parent="Head" unique_id=1676787022]
+current = true
+fov = 60.0
+
+[node name="Sprint" type="Node" parent="." unique_id=672224491]
+script = ExtResource("4_jll8t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=190819500]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1255785398]
+material = SubResource("ShaderMaterial_vlldt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Center" type="Control" parent="CanvasLayer" unique_id=1789604677]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CrosshairSprite" type="AnimatedSprite2D" parent="CanvasLayer/Center" unique_id=1327473903]
+modulate = Color(0.85348755, 0.85348773, 0.8534877, 1)
+sprite_frames = SubResource("SpriteFrames_j23h2")
+frame = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=73029817]
+libraries/ = SubResource("AnimationLibrary_j23h2")
+
+[node name="AnimationTree" type="AnimationTree" parent="CanvasLayer" unique_id=1595789645]
+tree_root = SubResource("AnimationNodeStateMachine_0j2ni")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("../AnimationPlayer")

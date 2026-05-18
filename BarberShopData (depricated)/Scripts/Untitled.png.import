@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://w682fkiwrvim"
-path.s3tc="res://.godot/imported/Untitled.png-84669f3aa644014d802be6db6cb760eb.s3tc.ctex"
+path.s3tc="res://.godot/imported/Untitled.png-d1940c518c82bb9f541f6835b1bdb338.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://BarberShopData/Scripts/Untitled.png"
-dest_files=["res://.godot/imported/Untitled.png-84669f3aa644014d802be6db6cb760eb.s3tc.ctex"]
+source_file="res://BarberShopData (depricated)/Scripts/Untitled.png"
+dest_files=["res://.godot/imported/Untitled.png-d1940c518c82bb9f541f6835b1bdb338.s3tc.ctex"]
 
 [params]
 

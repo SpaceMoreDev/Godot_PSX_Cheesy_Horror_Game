@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="PSX JAM"
-run/main_scene="uid://dx0k253ho2kd4"
+run/main_scene="uid://d1fkdt234vdic"
 config/features=PackedStringArray("4.6", "Mobile")
 
 [autoload]
@@ -27,6 +27,7 @@ GlobalData="*uid://bxuvohplq5tb0"
 
 window/size/viewport_width=640
 window/size/viewport_height=480
+window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 
@@ -37,7 +38,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [file_customization]
 
 folder_colors={
-"res://BarberShopData/": "red"
+"res://BarberShopData (depricated)/": "gray",
+"res://DeathGameData/": "red"
 }
 
 [global_group]
