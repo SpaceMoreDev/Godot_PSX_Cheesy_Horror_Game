@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://1ryhjik5vack" path="res://Levels/Main/L_Main.gd" id="1_e8yqx"]
 [ext_resource type="PackedScene" uid="uid://bm6xnc2fyeyob" path="res://DeathGameData/Assets/player.tscn" id="2_e8yqx"]
 [ext_resource type="PackedScene" uid="uid://dvho18kvx31a6" path="res://DeathGameData/Assets/models/Killer.fbx" id="4_07ux1"]
+[ext_resource type="PackedScene" uid="uid://bx3eq02goysgs" path="res://DeathGameData/Assets/models/Casey.fbx" id="5_8gvd3"]
 [ext_resource type="Material" uid="uid://sofvlrq3jmka" path="res://Levels/Main/Materials/M_Dark.tres" id="7_xrbb2"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_srxwf"]
@@ -31,3 +32,6 @@ shape = SubResource("ConcavePolygonShape3D_wmcjf")
 
 [node name="Killer" parent="." unique_id=1888367424 instance=ExtResource("4_07ux1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36582947, 0.25143823, 6.4620786)
+
+[node name="Casey" parent="." unique_id=1280067871 instance=ExtResource("5_8gvd3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6744194, 0.25142372, 6.339593)
