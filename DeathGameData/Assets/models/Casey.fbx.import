@@ -44,7 +44,12 @@ _subresources={
 "use_external/fallback_path": "res://DeathGameData/Assets/models/materials/FSkin.tres",
 "use_external/path": "uid://cylyojkm7qnf8"
 },
-"casey_hair": {
+"Clothes": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/models/materials/CaseyClothes_M/CaseyClothes_M.tres",
+"use_external/path": "uid://bp2373ihlwq7m"
+},
+"Hair_M": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://DeathGameData/Assets/models/materials/casey_hair.tres",
 "use_external/path": "uid://0i8wp4huy58d"

@@ -1,8 +1,14 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://0i8wp4huy58d"]
 
+[ext_resource type="Texture2D" uid="uid://cqlfbx7uf3qiq" path="res://DeathGameData/Assets/models/materials/Hair_Baked.png" id="1_dru0d"]
+
 [resource]
+transparency = 2
+alpha_scissor_threshold = 0.025
+alpha_antialiasing_mode = 0
 cull_mode = 2
-shading_mode = 2
+shading_mode = 0
 diffuse_mode = 2
 specular_mode = 2
-albedo_color = Color(0.3901065, 0.21136144, 0.061027437, 1)
+albedo_color = Color(0.7702004, 0.22002126, 0, 1)
+albedo_texture = ExtResource("1_dru0d")
