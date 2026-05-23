@@ -1,5 +1,7 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://tom1tk1emf5v"]
 
+[ext_resource type="Texture2D" uid="uid://cr3wjxil6r653" path="res://DeathGameData/Assets/maps/Cell/Bars Color.png" id="1_h57xg"]
+
 [resource]
-albedo_color = Color(0.18072185, 0.180722, 0.18072197, 1)
+albedo_texture = ExtResource("1_h57xg")
 texture_filter = 0

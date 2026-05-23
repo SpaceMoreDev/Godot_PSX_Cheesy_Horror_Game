@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dcdv4uy56v3px"]
+
+[ext_resource type="Texture2D" uid="uid://ubjxa8u6aiet" path="res://DeathGameData/Assets/maps/Cell/pipe.png" id="1_6yq28"]
+
+[resource]
+albedo_texture = ExtResource("1_6yq28")
+texture_filter = 0

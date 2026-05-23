@@ -3,5 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cisd22mj8vir1" path="res://DeathGameData/Assets/maps/Cell/Textures/Brick-Fixed.jpg" id="1_ctome"]
 
 [resource]
+vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_ctome")
 texture_filter = 0
+stencil_flags = 2

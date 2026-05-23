@@ -3,7 +3,7 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c884jjlbkt6ib"
+uid="uid://sqnfv608c23"
 path="res://.godot/imported/Cell.blend-67acb1c9c91f06f9aa3e12b53810a3ae.scn"
 
 [deps]
@@ -49,6 +49,16 @@ _subresources={
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_ceiling.tres",
 "use_external/path": "uid://hoeurinsd1rr"
 },
+"Cylinder.001": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_pipe.tres",
+"use_external/path": "uid://dcdv4uy56v3px"
+},
+"Door": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_metal_door.tres",
+"use_external/path": "uid://dky55r3c1vhp4"
+},
 "Floor": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_ground.tres",
@@ -63,26 +73,6 @@ _subresources={
 "use_external/enabled": true,
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_wall.tres",
 "use_external/path": "uid://bwlpwj0t6ntvi"
-}
-},
-"meshes": {
-"Cell_Cube_003": {
-"generate/lightmap_uv": 2,
-"generate/lods": 0,
-"generate/shadow_meshes": 2,
-"lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
-"save_to_file/path": ""
-},
-"Cell_Cylinder": {
-"generate/lightmap_uv": 1,
-"generate/lods": 0,
-"generate/shadow_meshes": 1,
-"lods/normal_merge_angle": 20.0,
-"save_to_file/enabled": false,
-"save_to_file/fallback_path": "",
-"save_to_file/path": ""
 }
 }
 }
