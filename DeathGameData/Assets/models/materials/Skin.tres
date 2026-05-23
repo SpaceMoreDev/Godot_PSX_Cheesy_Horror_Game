@@ -3,5 +3,4 @@
 [ext_resource type="Texture2D" uid="uid://bd81gqud5uuna" path="res://DeathGameData/Assets/models/materials/Base_skin Color.png" id="1_bl0u7"]
 
 [resource]
-shading_mode = 0
 albedo_texture = ExtResource("1_bl0u7")

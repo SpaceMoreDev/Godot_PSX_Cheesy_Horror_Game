@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://durk8hot0j5bb"]
+
+[ext_resource type="Texture2D" uid="uid://b0yb0veppph1k" path="res://DeathGameData/Assets/maps/Cell/Textures/Stone_Ground.jpg" id="1_xnu8q"]
+
+[resource]
+albedo_texture = ExtResource("1_xnu8q")
+texture_filter = 0

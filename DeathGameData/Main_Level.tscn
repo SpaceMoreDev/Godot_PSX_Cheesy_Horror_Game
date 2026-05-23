@@ -4,34 +4,109 @@
 [ext_resource type="PackedScene" uid="uid://bm6xnc2fyeyob" path="res://DeathGameData/Assets/player.tscn" id="2_e8yqx"]
 [ext_resource type="PackedScene" uid="uid://dvho18kvx31a6" path="res://DeathGameData/Assets/models/Killer.fbx" id="4_07ux1"]
 [ext_resource type="PackedScene" uid="uid://bx3eq02goysgs" path="res://DeathGameData/Assets/models/Casey.fbx" id="5_8gvd3"]
-[ext_resource type="Material" uid="uid://sofvlrq3jmka" path="res://Levels/Main/Materials/M_Dark.tres" id="7_xrbb2"]
+[ext_resource type="PackedScene" uid="uid://c884jjlbkt6ib" path="res://DeathGameData/Assets/maps/Cell/Cell.blend" id="6_3ogya"]
+[ext_resource type="Texture2D" uid="uid://cuum7bjppbegi" path="res://DeathGameData/Assets/maps/Cell/Textures/BloodFabric01.png" id="6_xrbb2"]
+[ext_resource type="Texture2D" uid="uid://cfxmfabhhk31s" path="res://DeathGameData/Assets/maps/Cell/Textures/count0nwall.png" id="7_4pe3f"]
+[ext_resource type="Texture2D" uid="uid://caecku0ncpbvw" path="res://DeathGameData/Assets/maps/Cell/Textures/Crack1.png" id="7_7ro33"]
+[ext_resource type="Texture2D" uid="uid://cdvmg718pa50a" path="res://DeathGameData/Assets/models/materials/cobweb.png" id="9_loodq"]
+[ext_resource type="PackedScene" uid="uid://b2ke54f3boco3" path="res://DeathGameData/Assets/maps/Cell/Bucket.fbx" id="10_4pe3f"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_srxwf"]
-size = Vector3(40, 0.5, 40)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pe3f"]
+transparency = 1
+cull_mode = 2
+albedo_texture = ExtResource("9_loodq")
+texture_filter = 0
 
-[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_wmcjf"]
-data = PackedVector3Array(-20, 0.25, 20, 20, 0.25, 20, -20, -0.25, 20, 20, 0.25, 20, 20, -0.25, 20, -20, -0.25, 20, 20, 0.25, -20, -20, 0.25, -20, 20, -0.25, -20, -20, 0.25, -20, -20, -0.25, -20, 20, -0.25, -20, 20, 0.25, 20, 20, 0.25, -20, 20, -0.25, 20, 20, 0.25, -20, 20, -0.25, -20, 20, -0.25, 20, -20, 0.25, -20, -20, 0.25, 20, -20, -0.25, -20, -20, 0.25, 20, -20, -0.25, 20, -20, -0.25, -20, 20, 0.25, 20, -20, 0.25, 20, 20, 0.25, -20, -20, 0.25, 20, -20, 0.25, -20, 20, 0.25, -20, -20, -0.25, 20, 20, -0.25, 20, -20, -0.25, -20, 20, -0.25, 20, 20, -0.25, -20, -20, -0.25, -20)
+[sub_resource type="PlaneMesh" id="PlaneMesh_wckqf"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wckqf"]
+transparency = 1
+albedo_color = Color(1.6613292, 0.14835651, 0.14835651, 1)
+albedo_texture = ExtResource("7_4pe3f")
+texture_filter = 0
 
 [node name="MainLevel" type="Node3D" unique_id=1564609472]
 script = ExtResource("1_e8yqx")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1853575218]
-transform = Transform3D(1, 0, 0, 0, 0.4874025, 0.8731774, 0, -0.8731774, 0.4874025, 0, 4.6220493, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=771745010]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 1.6925786, 3.1867416, 7.234705)
+light_color = Color(0.9682644, 0.9010224, 0.49245703, 1)
+light_energy = 1.789
+shadow_enabled = true
+omni_range = 7.502
 
 [node name="Player" parent="." unique_id=1136300363 instance=ExtResource("2_e8yqx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.107317, 1.209631, 9.07605)
 
-[node name="Floor" type="MeshInstance3D" parent="." unique_id=556202587]
-mesh = SubResource("BoxMesh_srxwf")
-surface_material_override/0 = ExtResource("7_xrbb2")
-
-[node name="StaticBody3D" type="StaticBody3D" parent="Floor" unique_id=521215436]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D" unique_id=1331883231]
-shape = SubResource("ConcavePolygonShape3D_wmcjf")
-
 [node name="Killer" parent="." unique_id=1888367424 instance=ExtResource("4_07ux1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36582947, 0.25143823, 6.4620786)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.042036, -0.0036269724, 6.965804)
 
 [node name="Casey" parent="." unique_id=527416654 instance=ExtResource("5_8gvd3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6744194, 0.25142372, 6.339593)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 9.5813675, 0.25142372, 10.555131)
+
+[node name="Blood" type="Decal" parent="." unique_id=920996303]
+transform = Transform3D(0.70710677, 0, 1.1313709, 0, 1, 0, -0.70710677, 0, 1.1313709, 4.2926555, 0, 6.7420473)
+size = Vector3(4, 0.1, 2)
+texture_albedo = ExtResource("6_xrbb2")
+cull_mask = 1047553
+
+[node name="Blood2" type="Decal" parent="." unique_id=1062577498]
+transform = Transform3D(-0.3047978, 0, -1.5238674, 0, 1, 0, 0.952417, 0, -0.4876765, -1.2169236, 0, 8.093353)
+size = Vector3(4, 0.01, 2)
+texture_albedo = ExtResource("6_xrbb2")
+cull_mask = 1047553
+
+[node name="Decal2" type="Decal" parent="." unique_id=836075819]
+transform = Transform3D(0.99999994, 0, 0, 0, -4.371139e-08, -1.6, 0, 1, -6.9938224e-08, 1.9264681, 1.2346317, 4.18902)
+size = Vector3(2.325, 0.065, 1.345)
+texture_albedo = ExtResource("7_7ro33")
+modulate = Color(0, 0, 0, 1)
+cull_mask = 1047553
+
+[node name="Decal3" type="Decal" parent="." unique_id=1683209077]
+transform = Transform3D(-0.94765157, -1.3957341e-08, -0.5108907, -0.31930667, 4.142317e-08, 1.5162425, 4.802267e-16, 1, -6.993823e-08, 2.0687385, 0.7104565, 4.177615)
+size = Vector3(2.325, 0.065, 1.345)
+texture_albedo = ExtResource("7_7ro33")
+modulate = Color(0, 0, 0, 1)
+cull_mask = 1047553
+
+[node name="Cell2" parent="." unique_id=435219081 instance=ExtResource("6_3ogya")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 7)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=494701446]
+transform = Transform3D(-0.4174028, -0.6313688, 0.6535659, 0.83418435, -0.5514857, 0, 0.36043227, 0.5451944, 0.7568696, 5.1961007, 3.5310175, 4.852683)
+material_override = SubResource("StandardMaterial3D_4pe3f")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=375909289]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, -0.3090213, 1.2507105, 4.2053905)
+material_override = SubResource("StandardMaterial3D_wckqf")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="." unique_id=1096043447]
+transform = Transform3D(0.5, 0, 0, 0, -2.1855694e-08, -0.5, 0, 0.5, -2.1855694e-08, 4.303944, 0.8825321, 4.2053905)
+material_override = SubResource("StandardMaterial3D_wckqf")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="." unique_id=1278562063]
+transform = Transform3D(-4.7194817e-09, 0.5, -2.1855652e-08, -0.03459088, -2.2129788e-08, -0.49880204, -0.49880204, -3.196135e-09, 0.03459088, -1.5933596, 1.0233424, 6.6008964)
+material_override = SubResource("StandardMaterial3D_wckqf")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="MeshInstance3D8" type="MeshInstance3D" parent="." unique_id=448088736]
+transform = Transform3D(-4.7194817e-09, 0.5, -2.1855652e-08, -0.03459088, -2.2129788e-08, -0.49880204, -0.49880204, -3.196135e-09, 0.03459088, -1.5933596, 1.703042, 4.8834233)
+material_override = SubResource("StandardMaterial3D_wckqf")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="MeshInstance3D7" type="MeshInstance3D" parent="." unique_id=510065067]
+transform = Transform3D(-5.3055317e-08, 0.5, -2.2539822e-08, 0.026019951, -1.9748288e-08, -0.4993225, -0.4993225, -5.4156402e-08, -0.026019951, -1.5933596, 1.4256909, 8.419669)
+material_override = SubResource("StandardMaterial3D_wckqf")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1668283057]
+transform = Transform3D(-0.21222034, 0.44035617, 0.20869513, 0.47851977, 0.23134631, -0.0015482977, -0.09211958, 0.18726994, -0.48882377, 5.3776364, 3.6191752, 9.3956995)
+material_override = SubResource("StandardMaterial3D_4pe3f")
+mesh = SubResource("PlaneMesh_wckqf")
+
+[node name="Bucket" parent="." unique_id=1149254102 instance=ExtResource("10_4pe3f")]
+transform = Transform3D(0.76261175, 0, 0, 0, 0.76261175, 0, 0, 0, 0.76261175, -1.1586872, 0.030576669, 4.7274194)

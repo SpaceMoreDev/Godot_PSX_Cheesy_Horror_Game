@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ba0ebjkylmtoc"]
+
+[ext_resource type="Texture2D" uid="uid://d37fgkqibnywh" path="res://DeathGameData/Assets/maps/Cell/Textures/bucket.png" id="1_iqw6r"]
+
+[resource]
+albedo_texture = ExtResource("1_iqw6r")
+texture_filter = 0

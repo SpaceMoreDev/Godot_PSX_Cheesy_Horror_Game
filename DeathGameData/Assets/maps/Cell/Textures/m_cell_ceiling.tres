@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://hoeurinsd1rr"]
+
+[ext_resource type="Texture2D" uid="uid://clcwttryejf6w" path="res://DeathGameData/Assets/maps/Cell/Textures/Stone_Ceiling.jpg" id="1_7oq8x"]
+
+[resource]
+albedo_texture = ExtResource("1_7oq8x")
+texture_filter = 0

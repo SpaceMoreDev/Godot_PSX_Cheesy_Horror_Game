@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bwlpwj0t6ntvi"]
+
+[ext_resource type="Texture2D" uid="uid://cisd22mj8vir1" path="res://DeathGameData/Assets/maps/Cell/Textures/Brick-Fixed.jpg" id="1_ctome"]
+
+[resource]
+albedo_texture = ExtResource("1_ctome")
+texture_filter = 0
