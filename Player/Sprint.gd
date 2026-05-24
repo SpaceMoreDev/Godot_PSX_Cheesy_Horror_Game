@@ -7,7 +7,7 @@ extends Node
 @export_node_path("Node3D") var head_path := NodePath("../Head")
 @onready var cam: Camera3D = get_node(head_path).cam
 
-@export var sprint_speed := 10
+@export var sprint_speed := 5
 @export var fov_multiplier := 1.1
 @onready var normal_speed: int = controller.speed
 @onready var normal_fov: float = cam.fov
