@@ -1,6 +1,7 @@
 extends Node
 
 @export var Player : MovementController
+@export var personality = 0
 @export var dialogue_sequence := 0
 var levels : Array[String] = [
 	"res://Intro.tscn",

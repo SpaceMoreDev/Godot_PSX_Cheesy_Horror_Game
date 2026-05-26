@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bq7evdw65ew60"
+path="res://.godot/imported/Intro_scene.dialogue-44a789ac366c26efcba6c0645640b94e.tres"
+
+[deps]
+
+source_file="res://DeathGameData/Dialogues/Intro_scene.dialogue"
+dest_files=["res://.godot/imported/Intro_scene.dialogue-44a789ac366c26efcba6c0645640b94e.tres"]
+
+[params]
+
+defaults=true

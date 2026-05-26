@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://4noyudoawkn7"
+path="res://.godot/imported/Dark_intro.dialogue-eb48008b6be2a354c36b00ad2c3a8e59.tres"
+
+[deps]
+
+source_file="res://DeathGameData/Dialogues/Dark_intro.dialogue"
+dest_files=["res://.godot/imported/Dark_intro.dialogue-eb48008b6be2a354c36b00ad2c3a8e59.tres"]
+
+[params]
+
+defaults=true

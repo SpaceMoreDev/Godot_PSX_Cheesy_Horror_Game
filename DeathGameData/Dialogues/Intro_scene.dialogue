@@ -1,0 +1,24 @@
+~ start
+Darkness: Human..
+Darkness: How do you describe your time among the living?
+
+- Kind
+	Darkness: Kind? perhaps I'll enjoy breaking you.. [set GlobalData.personality = 0]
+- Tiring
+	Darkness: hmm.. how interesting. [set GlobalData.personality = 1]
+	Darkness: Perhaps you have potential..
+- Misreble
+	Darkness: Perhaps you're the perfect vessel.. [set GlobalData.personality = 2]
+
+if (GlobalData.personality == 0):
+	Darkness: You lived a life filled with kindness you say.. how utterly boring..
+elif (GlobalData.personality == 1):
+	Darkness: Tiring life, huh? perhaps you need more reslience.
+elif (GlobalData.personality == 2):
+	Darkness: Tiring life, huh? perhaps you need more reslience.
+
+Darkness: Your death was highly exaggerated.
+Darkness: You belong to me now [speed=0.5]
+Darkness: and your heart is soon to rot.
+~ END
+do _start_fade()
