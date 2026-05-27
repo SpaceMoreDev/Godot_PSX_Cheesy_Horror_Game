@@ -1,6 +1,6 @@
 [gd_resource type="StandardMaterial3D" format=3 uid="uid://0i8wp4huy58d"]
 
-[ext_resource type="Texture2D" uid="uid://cqlfbx7uf3qiq" path="res://DeathGameData/Assets/models/materials/Hair_Baked.png" id="1_dru0d"]
+[ext_resource type="Texture2D" uid="uid://cqlfbx7uf3qiq" path="res://DeathGameData/Assets/models/materials/Casey/Hair_Baked.png" id="1_dru0d"]
 
 [resource]
 transparency = 2

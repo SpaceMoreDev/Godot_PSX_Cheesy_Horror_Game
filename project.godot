@@ -25,7 +25,6 @@ GlobalData="*uid://bxuvohplq5tb0"
 
 [display]
 
-window/size/mode=3
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 

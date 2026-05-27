@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqlfbx7uf3qiq"
-path.s3tc="res://.godot/imported/Hair_Baked.png-ef2e862d71a9e2ee0dd00ea5e8d87dde.s3tc.ctex"
+uid="uid://cc0q83o3wu8og"
+path.s3tc="res://.godot/imported/Clothes Color.png-c892ead4e60cf9396462d611d22a0764.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://DeathGameData/Assets/models/materials/Hair_Baked.png"
-dest_files=["res://.godot/imported/Hair_Baked.png-ef2e862d71a9e2ee0dd00ea5e8d87dde.s3tc.ctex"]
+source_file="res://DeathGameData/Assets/models/materials/Casey/Clothes Color.png"
+dest_files=["res://.godot/imported/Clothes Color.png-c892ead4e60cf9396462d611d22a0764.s3tc.ctex"]
 
 [params]
 

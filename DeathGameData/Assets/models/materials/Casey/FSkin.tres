@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cylyojkm7qnf8"]
+
+[ext_resource type="Texture2D" uid="uid://c37677dacl7ym" path="res://DeathGameData/Assets/models/materials/Casey/Base_skin Color.png" id="1_p1wto"]
+
+[resource]
+diffuse_mode = 2
+specular_mode = 2
+albedo_texture = ExtResource("1_p1wto")

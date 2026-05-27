@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vfevnljqbgpn"]
+
+[ext_resource type="Texture2D" uid="uid://dptgord5bbxdl" path="res://DeathGameData/mapatlas.png" id="1_eb347"]
+
+[resource]
+albedo_texture = ExtResource("1_eb347")
+metallic_specular = 0.0
