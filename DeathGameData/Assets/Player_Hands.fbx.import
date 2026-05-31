@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bx3eq02goysgs"
-path="res://.godot/imported/Casey.fbx-0ff59bf11da8b6a1914f03ced9410c33.scn"
+uid="uid://knytciutdx6l"
+path="res://.godot/imported/Player_Hands.fbx-b3d66e727c3fd9dfacea608ba3b130a5.scn"
 
 [deps]
 
-source_file="res://DeathGameData/Assets/models/Casey.fbx"
-dest_files=["res://.godot/imported/Casey.fbx-0ff59bf11da8b6a1914f03ced9410c33.scn"]
+source_file="res://DeathGameData/Assets/Player_Hands.fbx"
+dest_files=["res://.godot/imported/Player_Hands.fbx-b3d66e727c3fd9dfacea608ba3b130a5.scn"]
 
 [params]
 
@@ -39,12 +39,12 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"root|Sitting": {
+"root|Take": {
 "save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",
-"settings/loop_mode": 1,
+"settings/loop_mode": 0,
 "slice_1/end_frame": 0,
 "slice_1/loop_mode": 0,
 "slice_1/name": "",
@@ -2097,25 +2097,15 @@ _subresources={
 }
 },
 "materials": {
-"Base_skin": {
+"Arms": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://DeathGameData/Assets/models/materials/Casey/FSkin.tres",
-"use_external/path": "uid://cylyojkm7qnf8"
-},
-"Clothes": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://DeathGameData/Assets/models/materials/Casey/CaseyClothes_M.tres",
-"use_external/path": "uid://bp2373ihlwq7m"
-},
-"Hair_M": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://DeathGameData/Assets/models/materials/Casey/casey_hair.tres",
-"use_external/path": "uid://0i8wp4huy58d"
+"use_external/fallback_path": "res://DeathGameData/Assets/models/materials/Player_Skin.tres",
+"use_external/path": "uid://dojp120pdn4cx"
 }
 },
 "nodes": {
-"PATH:AnimationPlayer": {
-"optimizer/enabled": false
+"PATH:root/Skeleton3D/Cube": {
+"mesh_instance/cast_shadow": 0
 }
 }
 }

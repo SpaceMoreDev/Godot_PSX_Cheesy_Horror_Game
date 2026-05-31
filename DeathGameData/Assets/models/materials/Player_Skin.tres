@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dojp120pdn4cx"]
+
+[ext_resource type="Texture2D" uid="uid://0uo2y200o4aw" path="res://DeathGameData/Assets/models/materials/Cylinder.002 Color.png" id="1_ynq7w"]
+
+[resource]
+diffuse_mode = 2
+specular_mode = 2
+albedo_texture = ExtResource("1_ynq7w")
