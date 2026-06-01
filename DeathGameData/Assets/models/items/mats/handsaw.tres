@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b4fkl1hr842co"]
+
+[ext_resource type="Texture2D" uid="uid://2nbar75mjlb2" path="res://DeathGameData/Assets/models/items/mats/handsaw Color.png" id="1_4l66k"]
+
+[resource]
+shading_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("1_4l66k")

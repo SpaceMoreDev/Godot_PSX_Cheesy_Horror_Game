@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://m7wgcyiqr8hi"]
+
+[ext_resource type="Script" uid="uid://cu8nla2s5org7" path="res://DeathGameData/Inventory System/Item_menu_slot.gd" id="1_xxmub"]
+[ext_resource type="Texture2D" uid="uid://d4goykjdnx36j" path="res://DeathGameData/Inventory System/item_bg.png" id="2_f84hg"]
+
+[node name="Slot" type="Control" unique_id=1565027553]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -75.0
+offset_right = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+script = ExtResource("1_xxmub")
+path_to_overlay_material = "res://DeathGameData/Inventory System/m_UI_Item_Selection.tres"
+
+[node name="Panel" type="Panel" parent="." unique_id=761106642]
+modulate = Color(0.3390365, 0.11093616, 0.5319682, 0.4392157)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -65.1025
+offset_right = 66.8975
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="Panel" unique_id=1959449714]
+modulate = Color(0, 0, 0, 0.58431375)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.45, 0.45)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture = ExtResource("2_f84hg")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="Name" type="Label" parent="." unique_id=1358044791]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -42.5
+offset_top = 107.0
+offset_right = 42.5
+offset_bottom = 130.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1945291383]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -58.0
+offset_top = -58.0
+offset_right = 58.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.9520326, 0.9520326)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+expand_mode = 2
+
+[node name="Subview" type="SubViewport" parent="." unique_id=244168816]
+own_world_3d = true
+transparent_bg = true
+canvas_cull_mask = 4294443008
+render_target_update_mode = 4
+
+[node name="Preview" type="Node3D" parent="Subview" unique_id=835651924]
+
+[node name="Model" type="Node3D" parent="Subview/Preview" unique_id=964901484]
+
+[node name="Camera3D" type="Camera3D" parent="Subview/Preview" unique_id=1383557247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.45600384)
+cull_mask = 1
+fov = 71.017815
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Subview/Preview" unique_id=811098054]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1, 0)

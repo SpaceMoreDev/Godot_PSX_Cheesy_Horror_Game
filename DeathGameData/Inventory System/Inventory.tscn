@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://cob88eq21xufp"]
+
+[ext_resource type="Script" uid="uid://bywjeg7a0hjk0" path="res://DeathGameData/Inventory System/inventory_system.gd" id="1_mk1fe"]
+[ext_resource type="Script" uid="uid://ck8pt2uqedn0c" path="res://DeathGameData/Inventory System/Item.gd" id="2_j3i5u"]
+[ext_resource type="Resource" uid="uid://bmmdoqbmjvws3" path="res://DeathGameData/Inventory System/Items/handsaw.tres" id="3_pct8i"]
+[ext_resource type="PackedScene" uid="uid://m7wgcyiqr8hi" path="res://DeathGameData/Inventory System/slot.tscn" id="4_y4tol"]
+
+[node name="Inventory" type="Control" unique_id=1671012342]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mk1fe")
+initial_inventory_items = Dictionary[ExtResource("2_j3i5u"), int]({
+ExtResource("3_pct8i"): 4
+})
+slot_scene = ExtResource("4_y4tol")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=164409721]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -428.0
+offset_top = 152.0
+offset_right = 428.00006
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 160
+alignment = 1

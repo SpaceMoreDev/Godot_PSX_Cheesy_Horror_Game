@@ -49,7 +49,7 @@ shape = SubResource("ConcavePolygonShape3D_sq745")
 [node name="Head" parent="Area3D" unique_id=1299626869 instance=ExtResource("2_qurd5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3539602, 0)
 
-[node name="Hair" parent="Area3D/Head" index="0" unique_id=1275574901]
+[node name="Hair" parent="Area3D/Head" index="0" unique_id=778386898]
 visible = false
 surface_material_override/0 = SubResource("ShaderMaterial_4e8mx")
 

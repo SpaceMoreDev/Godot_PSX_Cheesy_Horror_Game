@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cbo1xpnbdhdcv"]
+
+[ext_resource type="PackedScene" uid="uid://bkf2j5h3qqlkx" path="res://DeathGameData/Assets/models/items/handsaw.fbx" id="1_c8gbt"]
+[ext_resource type="Script" uid="uid://bxwd8d6ov1lbj" path="res://DeathGameData/Inventory System/Items/Item_scenes/item_hadnsaw.gd" id="1_dm873"]
+
+[node name="IHadnsaw" type="Node3D" unique_id=1437156034]
+script = ExtResource("1_dm873")
+
+[node name="handsaw" parent="." unique_id=1494146066 instance=ExtResource("1_c8gbt")]

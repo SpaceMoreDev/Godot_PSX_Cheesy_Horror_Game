@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://2edajegxr1gn"]
+
+[ext_resource type="Script" uid="uid://ck8pt2uqedn0c" path="res://DeathGameData/Inventory System/Item.gd" id="1_fj7a3"]
+
+[resource]
+script = ExtResource("1_fj7a3")
+item_name = "Chainsaw"
+metadata/_custom_type_script = "uid://ck8pt2uqedn0c"

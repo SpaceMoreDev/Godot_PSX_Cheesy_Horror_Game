@@ -1,0 +1,10 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://b7041utij3jsm"]
+
+[ext_resource type="Shader" uid="uid://dscbjlwxwngq0" path="res://DeathGameData/Inventory System/3DItemPreview.gdshader" id="1_1dnma"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_1dnma")
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/selection_amount = 1.0
