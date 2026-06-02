@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dvpiy7xtc0y0n" path="res://Player/Sprint.gd" id="4_jll8t"]
 [ext_resource type="Shader" uid="uid://kou4s54443c7" path="res://Shaders/psx_postprocess.gdshader" id="5_i0mye"]
 [ext_resource type="Texture2D" uid="uid://b7suvnf1tr621" path="res://Assets/Crosshair-Sheet.png" id="6_fy2ah"]
+[ext_resource type="PackedScene" uid="uid://cob88eq21xufp" path="res://DeathGameData/Inventory System/Inventory.tscn" id="7_wtxyt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
 
@@ -491,6 +492,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Inventory" parent="CanvasLayer" unique_id=1671012342 instance=ExtResource("7_wtxyt")]
 
 [node name="Center" type="Control" parent="CanvasLayer" unique_id=1789604677]
 visible = false

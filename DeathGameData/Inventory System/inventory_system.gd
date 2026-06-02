@@ -9,43 +9,80 @@ var _inventory_slots : Array[Inv_Slot]
 var active : bool = false
 var _current_slot : Inv_Slot
 var _current_item : Item
-var _current_slot_index : int = -1
+var _current_slot_index : int = 0
 # todo:
 # items array. (done)
 # add, remove items from the inventory. (done)
 # action function for each item. (maybe an interface?)
 # cool looking UI for inventory system where items float in 3D.
 
+func _next_item():
+		_inventory_slots[_current_slot_index].is_active = false
+		_current_slot_index = (_current_slot_index + 1) % _inventory_slots.size()
+		_inventory_slots[_current_slot_index].is_active = true
+		_current_slot = _inventory_slots[_current_slot_index]
+
+func _previous_item():
+		_inventory_slots[_current_slot_index].is_active = false
+		_current_slot_index = (_current_slot_index - 1 + _inventory_slots.size()) % _inventory_slots.size()
+		_inventory_slots[_current_slot_index].is_active = true
+		_current_slot = _inventory_slots[_current_slot_index]
+
+func _number_switch(event: InputEvent):
+	var key_num := -1
+
+	match event.keycode:
+		KEY_1: key_num = 0
+		KEY_2: key_num = 1
+		KEY_3: key_num = 2
+		KEY_4: key_num = 3
+		KEY_5: key_num = 4
+		KEY_6: key_num = 5
+		KEY_7: key_num = 6
+		KEY_8: key_num = 7
+		KEY_9: key_num = 8
+
+	if key_num >= 0 and key_num < _inventory_slots.size():
+		select_slot(key_num)
+
+func select_slot(index: int) -> void:
+	if index == _current_slot_index:
+		return
+
+	_inventory_slots[_current_slot_index].is_active = false
+
+	_current_slot_index = index
+
+	_inventory_slots[_current_slot_index].is_active = true
+	_current_slot = _inventory_slots[_current_slot_index]
+
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if Input.is_action_just_pressed("inventory"):
-			if active:
-				hide_inventory()
-				print("hide")
-			else:
-				show_inventory()
-				print("show")
-	
-	if !active: return
+	if Input.is_action_just_pressed("inventory"):
+		show_inventory()
+		print("show")
+	elif Input.is_action_just_released("inventory"):
+		hide_inventory()
+		print("hide")
+
 	
 	if event is InputEventKey:
+		if event.pressed:
+			_number_switch(event)
+		
+		if !active: return
+		
 		if Input.is_action_just_pressed("inventory_next"):
-			_inventory_slots[_current_slot_index].is_active = false
-
-			_current_slot_index = (_current_slot_index + 1) % _inventory_slots.size()
-
-			_inventory_slots[_current_slot_index].is_active = true
-			_current_slot = _inventory_slots[_current_slot_index]
-
+			_next_item()
+		
 		elif Input.is_action_just_pressed("inventory_previous"):
-			#if _current_slot_index<_inventory_slots.size():
-			_inventory_slots[_current_slot_index].is_active = false
-
-			_current_slot_index = (_current_slot_index - 1 + _inventory_slots.size()) % _inventory_slots.size()
-
-			_inventory_slots[_current_slot_index].is_active = true
-			_current_slot = _inventory_slots[_current_slot_index]
-
+			_previous_item()
+	if event is InputEventMouseButton:
+		if Input.is_action_pressed("inventory_next"):
+			_next_item()
+		
+		elif Input.is_action_pressed("inventory_previous"):
+			_previous_item()
+	
 func _ready() -> void:
 	$HBoxContainer.visible = false
 	initialize_inventory()
@@ -133,16 +170,28 @@ func show_inventory():
 	active = true
 	$HBoxContainer.visible = true
 	var tween = get_tree().create_tween()
-	tween.tween_property($HBoxContainer, "position", Vector2(148.0, 473.0), 0.1).set_ease(Tween.EASE_IN)
+	tween.tween_property($HBoxContainer, "position", Vector2(148.0, 473.0), 0.3).set_ease(Tween.EASE_IN)
+	tween.finished.connect(shown)
+	var tween_scale = get_tree().create_tween()
+	tween_scale.tween_property($HBoxContainer, "scale", Vector2.ONE, 0.3)
+	
 
 func hide_inventory():
 	active = false
-	_current_slot.is_active=false
-	_current_slot_index = -1
-	var tween = get_tree().create_tween()
-	tween.tween_property($HBoxContainer, "position", Vector2(148.0, 800.0), 0.1)
-	tween.finished.connect(hidden)
+	
+	if _current_slot:
+		_current_item = _current_slot.inv_item
+		
+	var tween_pos = get_tree().create_tween()
+	tween_pos.tween_property($HBoxContainer, "position", Vector2(148.0, 800.0), 0.3)
+	tween_pos.finished.connect(hidden)
+	var tween_scale = get_tree().create_tween()
+	tween_scale.tween_property($HBoxContainer, "scale", Vector2(0.5,0.5), 0.3)
 
+func shown():
+	_inventory_slots[_current_slot_index].is_active=true
+	print("shown")
 func hidden():
 	$HBoxContainer.visible = false
+	_inventory_slots[_current_slot_index].is_active=false
 	print("hidden")
