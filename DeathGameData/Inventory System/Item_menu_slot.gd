@@ -14,6 +14,7 @@ var is_active : bool :
 			activate()
 		else:
 			deactivate()
+			model.rotation_degrees = Vector3.ZERO
 		_active = val
 var item_mesh : MeshInstance3D
 var item_model : Node3D
@@ -58,7 +59,8 @@ func set_data(new_item : Item):
 		#call_deferred("deselect")
 
 func _process(delta: float) -> void:
-	model.rotate_y(delta)
+	if _active:
+		model.rotate_y(delta)
 
 
 func _on_mouse_entered() -> void:
