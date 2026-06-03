@@ -13,8 +13,9 @@ var _current_slot_index : int = 0
 # todo:
 # items array. (done)
 # add, remove items from the inventory. (done)
+# cool looking UI for inventory system where items float in 3D. (done)
 # action function for each item. (maybe an interface?)
-# cool looking UI for inventory system where items float in 3D.
+
 
 func _next_item():
 		_inventory_slots[_current_slot_index].is_active = false
@@ -166,15 +167,17 @@ func initialize_inventory():
 	
 	print_inventory()
 
+var tween_pos
+
 func show_inventory():
 	active = true
+	_inventory_slots[_current_slot_index].is_active=true
 	$HBoxContainer.visible = true
-	var tween = get_tree().create_tween()
-	tween.tween_property($HBoxContainer, "position", Vector2(148.0, 473.0), 0.3).set_ease(Tween.EASE_IN)
-	tween.finished.connect(shown)
+	tween_pos = get_tree().create_tween()
+	tween_pos.tween_property($HBoxContainer, "position", Vector2(148.0, 473.0), 0.2)
+	tween_pos.finished.connect(done_transition)
 	var tween_scale = get_tree().create_tween()
 	tween_scale.tween_property($HBoxContainer, "scale", Vector2.ONE, 0.3)
-	
 
 func hide_inventory():
 	active = false
@@ -182,16 +185,15 @@ func hide_inventory():
 	if _current_slot:
 		_current_item = _current_slot.inv_item
 		
-	var tween_pos = get_tree().create_tween()
-	tween_pos.tween_property($HBoxContainer, "position", Vector2(148.0, 800.0), 0.3)
-	tween_pos.finished.connect(hidden)
+	tween_pos = get_tree().create_tween()
+	tween_pos.tween_property($HBoxContainer, "position", Vector2(148.0, 800.0), 0.2)
+	tween_pos.finished.connect(done_transition)
 	var tween_scale = get_tree().create_tween()
 	tween_scale.tween_property($HBoxContainer, "scale", Vector2(0.5,0.5), 0.3)
 
-func shown():
-	_inventory_slots[_current_slot_index].is_active=true
-	print("shown")
-func hidden():
-	$HBoxContainer.visible = false
-	_inventory_slots[_current_slot_index].is_active=false
+func done_transition():
+	if !active:
+		_inventory_slots[_current_slot_index].is_active=false
+	else:
+		_inventory_slots[_current_slot_index].is_active=true
 	print("hidden")

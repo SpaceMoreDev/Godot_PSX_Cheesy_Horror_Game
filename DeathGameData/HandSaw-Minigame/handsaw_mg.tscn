@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://dllkxchnlynrt"]
+
+[ext_resource type="Script" uid="uid://dxda5nk1i2ol5" path="res://DeathGameData/HandSaw-Minigame/handsaw_mg.gd" id="1_3atc0"]
+[ext_resource type="PackedScene" uid="uid://bkf2j5h3qqlkx" path="res://DeathGameData/Assets/models/items/handsaw.fbx" id="1_ymw0p"]
+
+[sub_resource type="Animation" id="Animation_ymw0p"]
+resource_name = "Handsaw_backforth"
+length = 0.33333668
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.16666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.20150873, 0, 0), Vector3(0.04917881, 0, 0), Vector3(0.202, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_3atc0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("hand:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.20150873, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wi85u"]
+_data = {
+&"Handsaw_backforth": SubResource("Animation_ymw0p"),
+&"RESET": SubResource("Animation_3atc0")
+}
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ymw0p"]
+bg_color = Color(0.0054537915, 0.08746088, 0.12723422, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3atc0"]
+bg_color = Color(0.5082767, 0.6614843, 0.240466, 1)
+
+[node name="Node3D" type="Node3D" unique_id=2065729257]
+script = ExtResource("1_3atc0")
+
+[node name="hand" type="Node3D" parent="." unique_id=1007508588]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.20150873, 0, 0)
+
+[node name="handsaw" parent="hand" unique_id=1494146066 instance=ExtResource("1_ymw0p")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1557977836]
+libraries/ = SubResource("AnimationLibrary_wi85u")
+autoplay = &"Handsaw_backforth"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=378935069]
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1575752394]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Control" unique_id=1282245801]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = -216.0
+offset_right = -68.0
+offset_bottom = 216.0
+grow_horizontal = 0
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_ymw0p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_3atc0")
+value = 42.91
+fill_mode = 3
+show_percentage = false
+
+[node name="required_wins" type="HBoxContainer" parent="CanvasLayer/Control" unique_id=633680309]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_top = 56.0
+offset_right = 20.0
+offset_bottom = 96.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/required_wins" unique_id=1796728936]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0.39657232, 0.570787, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer/Control/required_wins" unique_id=859654214]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0.67809004, 0.45047975, 0.1655469, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="CanvasLayer/Control/required_wins" unique_id=285399242]
+visible = false
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+color = Color(0.9310086, 0, 0.3342819, 1)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=264199714]
+transform = Transform3D(0.49999997, -0.43301272, 0.75000006, 0, 0.8660254, 0.50000006, -0.86602545, -0.24999999, 0.43301266, 0.44474912, 0.3175606, 0.2700745)

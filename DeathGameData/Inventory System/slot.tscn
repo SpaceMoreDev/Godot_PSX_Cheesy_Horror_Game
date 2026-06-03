@@ -19,6 +19,7 @@ script = ExtResource("1_xxmub")
 path_to_overlay_material = "res://DeathGameData/Inventory System/m_UI_Item_Selection.tres"
 
 [node name="Panel" type="Panel" parent="." unique_id=761106642]
+visible = false
 modulate = Color(0.3390365, 0.11093616, 0.5319682, 0.4392157)
 layout_mode = 1
 anchors_preset = 15
@@ -29,8 +30,8 @@ offset_right = 66.8975
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BG" type="TextureRect" parent="Panel" unique_id=1959449714]
-modulate = Color(0, 0, 0, 0.8901961)
+[node name="BG" type="TextureRect" parent="." unique_id=1959449714]
+modulate = Color(0.2863489, 0.27318737, 0.24162826, 0.41568628)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
