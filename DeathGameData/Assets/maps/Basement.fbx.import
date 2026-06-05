@@ -54,6 +54,16 @@ _subresources={
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_basement_pipes.tres",
 "use_external/path": "uid://b1rkqqfo0s3pl"
 },
+"Plank": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_basement_planks.tres",
+"use_external/path": "uid://cp0hase5pixy5"
+},
+"Shelf": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_basement_shelf.tres",
+"use_external/path": "uid://7iwylb1if4qu"
+},
 "Toilet": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_toilet.tres",

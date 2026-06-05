@@ -323,6 +323,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7786821, 0)
 script = ExtResource("3_wtxyt")
 
 [node name="Camera" type="Camera3D" parent="Head" unique_id=1676787022]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.16438806, 0)
 current = true
 fov = 60.0
 
