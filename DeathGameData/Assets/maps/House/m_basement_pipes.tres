@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://b1rkqqfo0s3pl"]
+
+[ext_resource type="Texture2D" uid="uid://3juteiy1yea3" path="res://DeathGameData/Assets/maps/House/Pipe Color.png" id="1_2s5p1"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_2s5p1")
+metallic = 0.74
+metallic_specular = 0.31
+roughness = 0.66
+texture_filter = 0
+stencil_flags = 2

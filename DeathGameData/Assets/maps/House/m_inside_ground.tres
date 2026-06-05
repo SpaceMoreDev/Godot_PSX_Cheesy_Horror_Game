@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://c76p7moyffqb6"]
+
+[ext_resource type="Texture2D" uid="uid://wigfds1etpbi" path="res://DeathGameData/Assets/maps/House/inside_floor.png" id="1_wy6l2"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_wy6l2")
+metallic_specular = 0.0
+texture_filter = 0
+stencil_flags = 2

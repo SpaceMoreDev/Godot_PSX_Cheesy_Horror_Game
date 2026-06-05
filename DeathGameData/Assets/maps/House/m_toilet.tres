@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dd5o3r3j0nr4m"]
+
+[ext_resource type="Texture2D" uid="uid://c1uu4lq45l0jm" path="res://DeathGameData/Assets/maps/House/Toilet Color.png" id="1_cjr2j"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_cjr2j")
+metallic_specular = 0.0
+texture_filter = 0
+stencil_flags = 2

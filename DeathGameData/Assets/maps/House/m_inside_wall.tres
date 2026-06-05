@@ -1,0 +1,10 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cxntty7qm647b"]
+
+[ext_resource type="Texture2D" uid="uid://vjk7oafho82n" path="res://DeathGameData/Assets/maps/House/inside_wall.png" id="1_0sfuv"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_texture = ExtResource("1_0sfuv")
+metallic_specular = 0.0
+texture_filter = 0
+stencil_flags = 2

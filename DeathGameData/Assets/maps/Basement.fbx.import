@@ -39,20 +39,50 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "materials": {
-"Ceiling": {
+"Inside_floor": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_inside_ground.tres",
+"use_external/path": "uid://c76p7moyffqb6"
+},
+"Inside_wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_inside_wall.tres",
+"use_external/path": "uid://cxntty7qm647b"
+},
+"Pipe": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_basement_pipes.tres",
+"use_external/path": "uid://b1rkqqfo0s3pl"
+},
+"Toilet": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_toilet.tres",
+"use_external/path": "uid://dd5o3r3j0nr4m"
+},
+"basement_roof": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_basement_roof.tres",
+"use_external/path": "uid://ci0bsbu2g4tco"
+},
+"brick_Wall": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_wall.tres",
+"use_external/path": "uid://bwlpwj0t6ntvi"
+},
+"stairs_ceiling": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_ceiling.tres",
 "use_external/path": "uid://hoeurinsd1rr"
 },
-"Ground": {
+"stairs_ground": {
 "use_external/enabled": true,
 "use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_ground.tres",
 "use_external/path": "uid://durk8hot0j5bb"
 },
-"Wall": {
+"stairs_walls": {
 "use_external/enabled": true,
-"use_external/fallback_path": "res://DeathGameData/Assets/maps/Cell/Textures/m_cell_wall.tres",
-"use_external/path": "uid://bwlpwj0t6ntvi"
+"use_external/fallback_path": "res://DeathGameData/Assets/maps/House/m_stairs_wall.tres",
+"use_external/path": "uid://cuj5no6c2nsac"
 }
 }
 }
