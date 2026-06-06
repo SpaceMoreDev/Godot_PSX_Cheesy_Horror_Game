@@ -483,6 +483,7 @@ autoplay = &"root|Idle"
 
 [node name="Sprint" type="Node" parent="." unique_id=672224491]
 script = ExtResource("4_jll8t")
+sprint_speed = 3
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=190819500]
 

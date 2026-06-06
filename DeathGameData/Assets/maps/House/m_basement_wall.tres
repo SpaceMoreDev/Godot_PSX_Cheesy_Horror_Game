@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cc5r1pk1tun70"]
+
+[ext_resource type="Texture2D" uid="uid://cisd22mj8vir1" path="res://DeathGameData/Assets/maps/Cell/Textures/Brick-Fixed.jpg" id="1_ffov5"]
+
+[resource]
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5937235, 0.75203407, 0.93964946, 1)
+albedo_texture = ExtResource("1_ffov5")
+metallic_specular = 0.0
+texture_filter = 0
+stencil_flags = 2

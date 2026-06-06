@@ -5,6 +5,8 @@
 [resource]
 vertex_color_use_as_albedo = true
 albedo_texture = ExtResource("1_5vrrl")
+metallic = 0.07
 metallic_specular = 0.0
+roughness = 0.74
 texture_filter = 0
 stencil_flags = 2
