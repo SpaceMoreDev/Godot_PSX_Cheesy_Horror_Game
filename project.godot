@@ -25,6 +25,7 @@ GlobalData="*uid://bxuvohplq5tb0"
 
 [display]
 
+window/size/always_on_top=true
 window/stretch/mode="viewport"
 window/stretch/aspect="keep_height"
 

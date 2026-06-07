@@ -17,12 +17,15 @@ enum BEHAVIORSTATES
 }
 
 var _player: MovementController
-var _current_movement : MOVESTATES = MOVESTATES.WAIT
+var _current_movement : MOVESTATES = MOVESTATES.MOVE
 var _target_destination : Vector3 # location the AI will follow (should be able to be cancelled midway)
 var _nav: NavigationAgent3D
-var _wait_timer := 0.0
+var _move_timer : Timer
+var _wait_timer := 1.0
 
-const SPEED := 5.0
+var _animation_node : AnimationPlayer
+
+const SPEED := 2.0
 
 
 func _ready() -> void:
@@ -30,8 +33,18 @@ func _ready() -> void:
 	add_child(_nav)
 	
 	_player = GlobalData.Player
+	_animation_node = $Killer/AnimationPlayer
+	
+	_move_timer = Timer.new()
+	add_child(_move_timer)
+	_move_timer.autostart = true
+	_move_timer.wait_time = _wait_timer
+	_move_timer.timeout.connect(_timout)
 	
 	pick_new_random_position_in_radius()
+
+func _timout():
+	print("timer_tick")
 
 func pick_new_random_position_in_radius() -> void:
 	if !_nav: return
@@ -46,17 +59,24 @@ func pick_new_random_position_in_radius() -> void:
 	) * radius
 	_nav.target_position = _player.global_position + offset
 	
+var ct : float = _wait_timer
 
 func _physics_process(delta: float) -> void:
 	
-	var player_look_dir := (-_player.camera.global_transform.basis.z).normalized() # to look at player constantly while moving!
-	var forward_dir := -transform.basis.z
-	
+	if ct > 0:
+		ct -= delta
+	else:
+		pick_new_random_position_in_radius()
+		ct = _wait_timer
+
+	update_move_state(delta)
+
 	# Gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
 	move_and_slide()
+	
 	
 func update_move_state(delta: float) -> void:
 	# NavigationAgent movement only
@@ -68,7 +88,9 @@ func update_move_state(delta: float) -> void:
 		velocity.y,
 		dir.z * SPEED
 	)
-
+	
+	_animation_node.play("root|Walk")
+	
 	# Rotate toward movement
 	if dir.length() > 0.01:
 		var angle := atan2(dir.x, dir.z)
@@ -88,11 +110,11 @@ func update_move_state(delta: float) -> void:
 		_wait_timer = randf_range(0.5, 10.0)
 
 		#shoot()
-func _on_move_states():
+func _on_move_states(delta: float):
 	match _current_movement:
 		MOVESTATES.WAIT:
 			pass
 		MOVESTATES.HIT:
 			pass
 		MOVESTATES.MOVE:
-			pass
+			update_move_state(delta)

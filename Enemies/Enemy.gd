@@ -35,9 +35,8 @@ func _ready() -> void:
 	if target_ik:
 		ik.target_node = target_ik.get_path()
 		ik.start()
-
 		hair_offset = to_local(target_ik.global_position)
-
+		
 	pick_new_position()
 
 var shooting_timer_counter : float = 0.0
@@ -110,23 +109,24 @@ func update_move_state(delta: float) -> void:
 func update_wait_state(delta: float) -> void:
 	velocity.x = 0.0
 	velocity.z = 0.0
-
+	
 	# Look at player while waiting
 	var look_dir := (player.global_position - global_position).normalized()
-
+	
 	var angle := atan2(look_dir.x, look_dir.z)
-
+	
 	rotation.y = lerp_angle(
 		rotation.y,
 		angle,
 		delta * 5.0
 	)
-
+	
 	wait_timer -= delta
-
+	
 	if wait_timer <= 0.0:
 		pick_new_position()
 		state = State.MOVE
+	
 
 var reachct = 0
 func pick_new_position() -> void:

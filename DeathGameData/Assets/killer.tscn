@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://cn6g5p0c0wdv4"]
 
 [ext_resource type="PackedScene" uid="uid://dvho18kvx31a6" path="res://DeathGameData/Assets/models/Killer.fbx" id="1_isqlu"]
+[ext_resource type="Script" uid="uid://dfgmkkau63e4v" path="res://KillerAI.gd" id="1_od6ve"]
 
-[node name="Killer" type="Node3D" unique_id=698104725]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_od6ve"]
+radius = 0.2529297
+height = 1.8006592
+
+[node name="Killer" type="CharacterBody3D" unique_id=1200070416]
 transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
+script = ExtResource("1_od6ve")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2020286116]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9059448, 0)
+shape = SubResource("CapsuleShape3D_od6ve")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=449340333]
 
 [node name="Killer" parent="." unique_id=1536606074 instance=ExtResource("1_isqlu")]
 
