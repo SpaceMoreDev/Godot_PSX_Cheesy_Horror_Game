@@ -8,6 +8,7 @@ var curr_velocity : float = 0.0
 
 @export var animation_tree : AnimationTree
 var temp_vel := 0.0
+
 func _process(delta: float) -> void:
 	if animation_tree != null:
 		temp_vel = lerp(temp_vel, curr_velocity, delta * 10)

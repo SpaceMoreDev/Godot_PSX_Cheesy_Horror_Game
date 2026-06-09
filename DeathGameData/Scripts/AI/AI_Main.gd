@@ -18,7 +18,7 @@ var _stun_timer : Timer
 var _state_timer : Timer
 var _nav : NavigationAgent3D
 
-
+@export var _avoidance_detection : AI_Avoidance_Detection
 @export var _ai_data : AIData
 @export var _animation_player : AnimationPlayer
 
@@ -39,7 +39,7 @@ func _ready():
 	_nav.velocity_computed.connect(_on_nav_velocity_computed)
 	_nav.navigation_finished.connect(_on_navigation_finished)
 
-	_nav.path_desired_distance = 1.5
+	_nav.path_desired_distance = 1.0
 	_nav.target_desired_distance = 1.0
 
 	print("navigation ready: ", _nav)
@@ -58,6 +58,24 @@ func _ready():
 	if _animation_player == null:
 		_animation_player = AnimationPlayer.new()
 		add_child(_animation_player)
+
+	_avoidance_detection.on_avoidance.connect(_on_avoidance)
+
+
+func _on_avoidance(direction : Vector3):
+	print("Avoidance signal received, direction: ", direction)
+	# _avoidance_detection.is_avoiding = true
+	var avoidance_vector = Vector3.ZERO
+
+	match direction:
+		Vector3.FORWARD:
+			avoidance_vector = -global_transform.basis.z
+		Vector3.LEFT:
+			avoidance_vector = -global_transform.basis.x
+		Vector3.RIGHT:
+			avoidance_vector = global_transform.basis.x
+
+	_nav.set_velocity(avoidance_vector.normalized())
 
 
 func _set_destination(destination: Vector3):
@@ -94,27 +112,29 @@ func update_move_state(delta: float) -> void:
 	#velocity = direction * _ai_data.move_speed
 	var _nav_velocity = Vector3(direction.x, velocity.y, direction.z) 
 	_ai_data.curr_velocity = _nav_velocity.length()
-
-	_nav.set_velocity(_nav_velocity)
+	
+	if not _avoidance_detection.is_avoiding:
+		_nav.set_velocity(_nav_velocity)
 	
 	apply_floor_snap()
 
 
 func _on_nav_velocity_computed(suggested_velocity: Vector3):
 	
-	#get next direct point in path
+	
 	velocity = velocity.move_toward(suggested_velocity, 0.67)
 
 	var direction = (suggested_velocity)
 
-	if direction.length() > 0.01:
-		var angle := atan2(direction.x, direction.z)
+	if not _avoidance_detection.is_avoiding:
+		if direction.length() > 0.01:
+			var angle := atan2(direction.x, direction.z)
 
-		rotation.y = lerp_angle(
-			rotation.y,
-			angle,
-			get_physics_process_delta_time() * 5.0
-		)
+			rotation.y = lerp_angle(
+				rotation.y,
+				angle,
+				get_physics_process_delta_time() * 2.0
+			)
 		
 	move_and_slide()
 
