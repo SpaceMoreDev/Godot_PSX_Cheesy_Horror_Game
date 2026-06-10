@@ -17,6 +17,8 @@ var _stun_duration : float = 2.0
 var _stun_timer : Timer
 var _state_timer : Timer
 var _nav : NavigationAgent3D
+var _velocity : Vector3 = Vector3.ZERO
+
 
 @export var _avoidance_detection : AI_Avoidance_Detection
 @export var _ai_data : AIData
@@ -33,9 +35,11 @@ func _ready():
 	add_child(_nav)
 
 	_nav.avoidance_enabled = true
+
 	_nav.radius = 0.5
 	_nav.max_speed = _ai_data.move_speed
 	_nav.debug_enabled = true
+
 	_nav.velocity_computed.connect(_on_nav_velocity_computed)
 	_nav.navigation_finished.connect(_on_navigation_finished)
 
@@ -75,7 +79,7 @@ func _on_avoidance(direction : Vector3):
 		Vector3.RIGHT:
 			avoidance_vector = global_transform.basis.x
 
-	_nav.set_velocity(avoidance_vector.normalized())
+	_velocity = avoidance_vector.normalized() * _ai_data.move_speed
 
 
 func _set_destination(destination: Vector3):
@@ -105,7 +109,7 @@ func _physics_process(delta: float) -> void:
 func update_move_state(delta: float) -> void:
 	
 	var speed = _ai_data.move_speed
-	#get next direct point in path
+
 	var next_point = _nav.get_next_path_position()
 	var direction = (next_point - global_position).normalized() * speed
 
@@ -113,7 +117,9 @@ func update_move_state(delta: float) -> void:
 	var _nav_velocity = Vector3(direction.x, velocity.y, direction.z) 
 	_ai_data.curr_velocity = _nav_velocity.length()
 	
-	if not _avoidance_detection.is_avoiding:
+	if _avoidance_detection.is_avoiding:
+		_nav.set_velocity(_nav_velocity + _velocity)
+	else:
 		_nav.set_velocity(_nav_velocity)
 	
 	apply_floor_snap()
