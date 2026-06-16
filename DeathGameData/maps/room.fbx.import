@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bcy5lajh76xho"
-path="res://.godot/imported/couch.fbx-282dd54880045540e40751192720db16.scn"
+uid="uid://b58nlpvy80iqr"
+path="res://.godot/imported/room.fbx-6dc1c4fe74d76ab8d24eec47a623f4b8.scn"
 
 [deps]
 
-source_file="res://DeathGameData/couch.fbx"
-dest_files=["res://.godot/imported/couch.fbx-282dd54880045540e40751192720db16.scn"]
+source_file="res://DeathGameData/maps/room.fbx"
+dest_files=["res://.godot/imported/room.fbx-6dc1c4fe74d76ab8d24eec47a623f4b8.scn"]
 
 [params]
 
@@ -37,15 +37,7 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={
-"materials": {
-"couch": {
-"use_external/enabled": true,
-"use_external/fallback_path": "res://DeathGameData/m_AllProps.tres",
-"use_external/path": "uid://vfevnljqbgpn"
-}
-}
-}
+_subresources={}
 fbx/importer=0
 fbx/allow_geometry_helper_nodes=false
 fbx/embedded_image_handling=1

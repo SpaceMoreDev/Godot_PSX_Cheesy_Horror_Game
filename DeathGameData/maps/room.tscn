@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://2xg8jjspn864"]
+
+[ext_resource type="PackedScene" uid="uid://bm6xnc2fyeyob" path="res://DeathGameData/Assets/player.tscn" id="1_q6v64"]
+[ext_resource type="PackedScene" uid="uid://b58nlpvy80iqr" path="res://DeathGameData/maps/room.fbx" id="2_g7m85"]
+
+[node name="Node3D" type="Node3D" unique_id=344126434]
+
+[node name="Player" parent="." unique_id=1136300363 instance=ExtResource("1_q6v64")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
+speed = 1
+jump_height = 2
+
+[node name="room" parent="." unique_id=1946182373 instance=ExtResource("2_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6206404, -1.1920929e-07, -0.17153978)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=925971385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8486714, 0)
+omni_range = 14.446179

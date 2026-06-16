@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dvho18kvx31a6"
-path="res://.godot/imported/Killer.fbx-c698e2a7d227fc10eecc5fd9a479e7cd.scn"
+path="res://.godot/imported/Killer.fbx-8d416bf71b94cfd8428a2347b98b5ce5.scn"
 
 [deps]
 
-source_file="res://DeathGameData/Assets/models/Killer.fbx"
-dest_files=["res://.godot/imported/Killer.fbx-c698e2a7d227fc10eecc5fd9a479e7cd.scn"]
+source_file="res://DeathGameData/Assets/killer-data/Killer.fbx"
+dest_files=["res://.godot/imported/Killer.fbx-8d416bf71b94cfd8428a2347b98b5ce5.scn"]
 
 [params]
 

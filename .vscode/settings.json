@@ -8,6 +8,11 @@
         {
             "folderPath": "Godot_PSX_Cheesy_Horror_Game\\BarberShopData (depricated)\\",
             "color": "foldercolorizer.color_767676"
+        },
+        {
+            "folderPath": "Godot_PSX_Cheesy_Horror_Game\\new_navigation_system\\",
+            "color": "foldercolorizer.color_ffff00",
+            "badge": "🚶"
         }
     ]
 }

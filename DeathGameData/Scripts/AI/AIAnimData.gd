@@ -3,7 +3,7 @@ class_name AIData
 
 
 @export var current_state : AI_Main.AISTATES =  AI_Main.AISTATES.IDLE
-@export var move_speed : float = 2.0
+@export var move_speed : float = 1.0
 var curr_velocity : float = 0.0
 
 @export var animation_tree : AnimationTree

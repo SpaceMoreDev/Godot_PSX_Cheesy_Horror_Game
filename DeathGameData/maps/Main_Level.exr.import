@@ -3,7 +3,7 @@
 importer="2d_array_texture"
 type="CompressedTexture2DArray"
 uid="uid://5rlgahabqc6c"
-path.bptc="res://.godot/imported/Main_Level.exr-8f792649fdc3e3fe0b849476baf16fa4.bptc.ctexarray"
+path.bptc="res://.godot/imported/Main_Level.exr-1e0a7c3370fb5fdb6eb0dca98d7d4d1f.bptc.ctexarray"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://DeathGameData/Main_Level.exr"
-dest_files=["res://.godot/imported/Main_Level.exr-8f792649fdc3e3fe0b849476baf16fa4.bptc.ctexarray"]
+source_file="res://DeathGameData/maps/Main_Level.exr"
+dest_files=["res://.godot/imported/Main_Level.exr-1e0a7c3370fb5fdb6eb0dca98d7d4d1f.bptc.ctexarray"]
 
 [params]
 

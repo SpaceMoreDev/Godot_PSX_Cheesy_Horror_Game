@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://01l3oqutjctp"]
+
+[ext_resource type="Texture2D" uid="uid://bx5o6mgnsbuvg" path="res://DeathGameData/Assets/models/sink Color.png" id="1_ctoru"]
+
+[resource]
+shading_mode = 2
+diffuse_mode = 2
+albedo_texture = ExtResource("1_ctoru")

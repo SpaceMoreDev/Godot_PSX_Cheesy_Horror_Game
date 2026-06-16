@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dese71hjl6xrn"]
+
+[ext_resource type="Script" uid="uid://d0oubewecavow" path="res://new_navigation_system/Scripts/generate_points.gd" id="1_1died"]
+[ext_resource type="Texture2D" uid="uid://c1f6duvpfuijb" path="res://Levels/Main/Materials/T_Grid.png" id="1_olydo"]
+[ext_resource type="PackedScene" uid="uid://bm6xnc2fyeyob" path="res://DeathGameData/Assets/player.tscn" id="2_84h2h"]
+[ext_resource type="PackedScene" uid="uid://cn6g5p0c0wdv4" path="res://DeathGameData/Assets/killer-data/killer.tscn" id="3_3lob4"]
+[ext_resource type="PackedScene" uid="uid://d3a5wgpldcayp" path="res://new_navigation_system/test_room.fbx" id="4_bgm5j"]
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_bgm5j"]
+vertices = PackedVector3Array(-26.249998, 0.49999678, -26.249998, 4.250002, 0.49999678, -7.499998, 13.500002, 0.49999678, -15.999998, 26.250002, 0.49999678, -26.249998, 14.500002, 0.49999678, -15.999998, 26.250002, 0.49999678, 26.250002, 17.750002, 0.49999678, 8.500002, 9.000002, 0.49999678, 7.500002, -26.249998, 0.49999678, 26.250002, 23.500002, 0.49999678, -3.249998, 23.500002, 0.49999678, -1.9999981)
+polygons = [PackedInt32Array(2, 1, 0), PackedInt32Array(4, 2, 3), PackedInt32Array(3, 2, 0), PackedInt32Array(6, 5, 7), PackedInt32Array(7, 5, 8), PackedInt32Array(4, 3, 9), PackedInt32Array(9, 3, 10), PackedInt32Array(10, 3, 5), PackedInt32Array(1, 7, 0), PackedInt32Array(0, 7, 8), PackedInt32Array(6, 10, 5)]
+sample_partition_type = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1died"]
+albedo_texture = ExtResource("1_olydo")
+metallic_specular = 0.0
+uv1_scale = Vector3(100, 100, 100)
+uv1_triplanar = true
+texture_filter = 5
+
+[node name="NavTestMap" type="Node3D" unique_id=205074486]
+
+[node name="GeneratePoints" type="Node3D" parent="." unique_id=976227983 node_paths=PackedStringArray("navigation_mesh")]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, 0)
+script = ExtResource("1_1died")
+navigation_mesh = NodePath("../Map")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1317459531]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.3382851, 4.107889, 0.19714499)
+
+[node name="Player" parent="." unique_id=1136300363 instance=ExtResource("2_84h2h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.4223299, 0.7023159, 2.8457775)
+
+[node name="Killer" parent="." unique_id=1200070416 instance=ExtResource("3_3lob4")]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0, 0, -3)
+
+[node name="Map" type="NavigationRegion3D" parent="." unique_id=715312357]
+navigation_mesh = SubResource("NavigationMesh_bgm5j")
+
+[node name="test_room" parent="Map" unique_id=85076147 instance=ExtResource("4_bgm5j")]
+
+[node name="Cube" parent="Map/test_room" index="0" unique_id=572164059]
+material_override = SubResource("StandardMaterial3D_1died")
+
+[node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Map" unique_id=546061268]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.729328, 0, 0)
+vertices = PackedVector3Array(0.7331352, 0, 7.8963203, -7.47443, 0, 6.9032545, -11.875269, 0, -7.1418815, -2.6545353, 0, -15.6767645, 6.3878593, 0, -2.629188)
+affect_navigation_mesh = true
+
+[editable path="Map/test_room"]
