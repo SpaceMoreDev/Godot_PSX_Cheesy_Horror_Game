@@ -8,8 +8,18 @@ class_name MovementController
 @export var deceleration := 10
 @export_range(0.0, 1.0, 0.05) var air_control := 0.3
 @export var jump_height := 10
+@export var player_anim : AnimationPlayer
 var is_shooting = false
 var is_interacting : bool = false
+
+var can_look :
+	set(val):
+		camera.can_look = val
+		camera.mouse_axis = Vector2.ZERO
+		camera.rotation_degrees= Vector3(0.0, -180.0, 0.0)
+	get:
+		return camera.can_look
+		
 
 var direction := Vector3()
 var input_axis := Vector2()

@@ -1,6 +1,9 @@
 ~ start
-Darkness: Human..
-Darkness: How do you describe your time among the living?
+Darkness: it shines..
+Darkness: so utterly fascinating..
+Darkness: you. what is your name?
+
+Darkness: oh? an earthly soul stumbles upon my domain?
 
 - Kind
 	Darkness: Kind? perhaps I'll enjoy breaking you.. [set GlobalData.personality = 0]

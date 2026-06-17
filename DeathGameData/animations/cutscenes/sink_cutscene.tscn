@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bn0hgwjcrk451"]
+
+[ext_resource type="PackedScene" uid="uid://dyi7us0v7ybyt" path="res://DeathGameData/Assets/models/sink.fbx" id="1_02c7a"]
+[ext_resource type="Script" uid="uid://65n30uryktkh" path="res://DeathGameData/animations/cutscenes/sink_cutscene.gd" id="1_a4qam"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_a4qam"]
+
+[node name="sink_cutscene" type="Area3D" unique_id=736916745]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+script = ExtResource("1_a4qam")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=22477636]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3970832e-08, 0.7550618, -0.15980768)
+shape = SubResource("BoxShape3D_a4qam")
+
+[node name="sink" parent="." unique_id=1890873417 instance=ExtResource("1_02c7a")]
+
+[node name="anim_loc" type="Marker3D" parent="." unique_id=1014486514]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.940697e-08, 0, -1)
