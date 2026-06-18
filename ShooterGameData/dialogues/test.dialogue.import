@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://c8a7b1ev5at35"
+path="res://.godot/imported/test.dialogue-438807fb789a073389f8ed84edf0d7e1.tres"
+
+[deps]
+
+source_file="res://ShooterGameData/dialogues/test.dialogue"
+dest_files=["res://.godot/imported/test.dialogue-438807fb789a073389f8ed84edf0d7e1.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cbggniamfjfuf"]
+
+[ext_resource type="Texture2D" uid="uid://dywj4xpwdgrjn" path="res://ShooterGameData/Assets/t_mp5sd.png" id="1_tmft4"]
+
+[resource]
+shading_mode = 0
+albedo_texture = ExtResource("1_tmft4")

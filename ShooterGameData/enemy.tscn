@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://da4nhcrr8q4m7"]
+
+[ext_resource type="PackedScene" uid="uid://diwwojvrk6nva" path="res://ShooterGameData/Assets/Characters/Enemy.tscn" id="1_7k104"]
+
+[node name="Enemy" type="Node3D" unique_id=791529098]
+
+[node name="CharacterBody3D" parent="." unique_id=1748115576 node_paths=PackedStringArray("target_ik") instance=ExtResource("1_7k104")]
+target_ik = NodePath("../TargetIK")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="CharacterBody3D" unique_id=1280802555]
+
+[node name="TargetIK" type="Node3D" parent="." unique_id=1790819683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.80372083, 2.1854718, 0)

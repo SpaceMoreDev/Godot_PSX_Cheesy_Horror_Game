@@ -6,11 +6,12 @@
 [ext_resource type="Script" uid="uid://hul5qj687404" path="res://DeathGameData/Assets/interaction.gd" id="4_i0mye"]
 [ext_resource type="Script" uid="uid://dvpiy7xtc0y0n" path="res://Player/Sprint.gd" id="4_jll8t"]
 [ext_resource type="Shader" uid="uid://kou4s54443c7" path="res://Shaders/psx_postprocess.gdshader" id="5_i0mye"]
-[ext_resource type="Animation" uid="uid://xusg8mo3ae3f" path="res://DeathGameData/animations/sink_arm_anim.anim" id="5_jll8t"]
-[ext_resource type="Texture2D" uid="uid://b7suvnf1tr621" path="res://Assets/Crosshair-Sheet.png" id="6_fy2ah"]
+[ext_resource type="Animation" uid="uid://c0h3vgip11v6f" path="res://DeathGameData/animations/sink_arm_anim.anim" id="5_jll8t"]
+[ext_resource type="Texture2D" uid="uid://b7suvnf1tr621" path="res://ShooterGameData/Assets/Crosshair-Sheet.png" id="6_fy2ah"]
 [ext_resource type="PackedScene" uid="uid://cob88eq21xufp" path="res://DeathGameData/Inventory System/Inventory.tscn" id="7_wtxyt"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fn1rj"]
+radius = 0.30859375
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jll8t"]
 _data = {
@@ -79,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s1rgi")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Shoot",
 "speed": 10.0
 }, {
@@ -99,7 +100,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_p7tob")
 }],
-"loop": false,
+"loop": 0,
 "name": &"default",
 "speed": 15.0
 }, {
@@ -119,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_3nb2p")
 }],
-"loop": false,
+"loop": 0,
 "name": &"interact",
 "speed": 15.0
 }]

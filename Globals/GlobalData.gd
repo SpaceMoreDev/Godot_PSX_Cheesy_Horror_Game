@@ -3,9 +3,10 @@ extends Node
 @export var Player : MovementController
 @export var personality = 0
 @export var dialogue_sequence := 0
+
 var levels : Array[String] = [
-	"res://Intro.tscn",
-	"res://Levels/Main/L_Main.tscn"
+	"res://DeathGameData/maps/abyss.tscn",
+	"res://DeathGameData/maps/room.tscn"
 ]
 
 func ChangetoScene(index : int):

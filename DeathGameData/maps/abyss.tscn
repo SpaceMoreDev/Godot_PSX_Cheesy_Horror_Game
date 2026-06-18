@@ -2,8 +2,8 @@
 
 [ext_resource type="Shader" uid="uid://kou4s54443c7" path="res://Shaders/psx_postprocess.gdshader" id="1_7bi2b"]
 [ext_resource type="Shader" uid="uid://doos3ficdl632" path="res://DeathGameData/shader/abyss.gdshader" id="1_083bd"]
-[ext_resource type="Script" uid="uid://sioqx8ds4c78" path="res://dialogues/dialogue_starter.gd" id="3_0pmvx"]
-[ext_resource type="Resource" uid="uid://bq7evdw65ew60" path="res://DeathGameData/Dialogues/Intro_scene.dialogue" id="4_i7e0c"]
+[ext_resource type="Script" uid="uid://sioqx8ds4c78" path="res://ShooterGameData/dialogues/dialogue_starter.gd" id="3_0pmvx"]
+[ext_resource type="Resource" uid="uid://4noyudoawkn7" path="res://DeathGameData/Dialogues/Dark_intro.dialogue" id="4_i7e0c"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0pmvx"]
 shader = ExtResource("1_7bi2b")

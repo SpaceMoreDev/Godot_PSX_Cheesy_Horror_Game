@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bsw8c4y6ylwl4" path="res://Player/Head.gd" id="1_enjfg"]
 [ext_resource type="Script" uid="uid://b1k6wl6kqjaqc" path="res://Player/shooting.gd" id="2_adwmk"]
-[ext_resource type="Texture2D" uid="uid://dywj4xpwdgrjn" path="res://Assets/t_mp5sd.png" id="2_irtxf"]
+[ext_resource type="Texture2D" uid="uid://dywj4xpwdgrjn" path="res://ShooterGameData/Assets/t_mp5sd.png" id="2_irtxf"]
 [ext_resource type="Script" uid="uid://de1b6c4vqtk4c" path="res://Player/animation_tree_conditions.gd" id="3_oowo0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_oowo0"]

@@ -1,11 +1,36 @@
 ~ start
-Nathan: [[Hi|Hello|Howdy]], this is some dialogue.
-Nathan: Here are some choices.
-- First one
-	Nathan: You picked the first one.
-- Second one
-	Nathan: You picked the second one.
-- Start again => start
-- End the conversation => END
-Nathan: For more information see the online documentation.
+
+A voice calls to you from deep with the void.
+The Abyss: it shines..
+The Abyss: so utterly fascinating..
+
+you attempt to move but you couldnt move a finger.. 
+you're paralyzed
+
+The Abyss: you. what is your name?
+
+The Abyss: an earthly soul stumbles upon my domain
+
+the more you stare the more you feel like the abyss itself is staring right back at you.
+
+The Abyss: let me take a good look at you
+
+suddenly a pair of eyes are visible.
+
+you feel goosebump on the hairs on your arm..
+
+The Abyss: ah fear.. the song of of despair
+
+The Abyss: your soul, it shines the most within the sea of souls..
+
+The Abyss: it’s mine for the taking, of course..
+
+you attempt to ask what is it, but words fail to come out of your mouth
+
+The Abyss: I will see you soon.
+
+The Abyss: I expect you to welcome me whole-heartly
+…
+you wake up
+do _end_level()
 => END

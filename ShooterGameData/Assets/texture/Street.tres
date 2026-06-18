@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://csxci6wy1ix13"]
+
+[ext_resource type="Texture2D" uid="uid://b5cemo7md33d4" path="res://ShooterGameData/Assets/texture/concrete_1.png" id="1_iso5f"]
+
+[resource]
+albedo_texture = ExtResource("1_iso5f")

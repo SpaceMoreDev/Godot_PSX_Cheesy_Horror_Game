@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://56v7you452yr" path="res://Player/animation_controller.gd" id="2_vlldt"]
 [ext_resource type="Script" uid="uid://dvpiy7xtc0y0n" path="res://Player/Sprint.gd" id="3_bgqcu"]
 [ext_resource type="Script" uid="uid://cw5aospvvf7fp" path="res://Player/interaction.gd" id="4_8g4oa"]
-[ext_resource type="Texture2D" uid="uid://b7suvnf1tr621" path="res://Assets/Crosshair-Sheet.png" id="4_ddoul"]
+[ext_resource type="Texture2D" uid="uid://b7suvnf1tr621" path="res://ShooterGameData/Assets/Crosshair-Sheet.png" id="4_ddoul"]
 [ext_resource type="Shader" uid="uid://kou4s54443c7" path="res://Shaders/psx_postprocess.gdshader" id="5_6ysni"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vlldt"]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dese71hjl6xrn"]
 
 [ext_resource type="Script" uid="uid://d0oubewecavow" path="res://new_navigation_system/Scripts/generate_points.gd" id="1_1died"]
-[ext_resource type="Texture2D" uid="uid://c1f6duvpfuijb" path="res://Levels/Main/Materials/T_Grid.png" id="1_olydo"]
+[ext_resource type="Texture2D" uid="uid://c1f6duvpfuijb" path="res://ShooterGameData/Levels/Main/Materials/T_Grid.png" id="1_olydo"]
 [ext_resource type="PackedScene" uid="uid://bm6xnc2fyeyob" path="res://DeathGameData/Assets/player.tscn" id="2_84h2h"]
 [ext_resource type="PackedScene" uid="uid://cn6g5p0c0wdv4" path="res://DeathGameData/Assets/killer-data/killer.tscn" id="3_3lob4"]
 [ext_resource type="PackedScene" uid="uid://d3a5wgpldcayp" path="res://new_navigation_system/test_room.fbx" id="4_bgm5j"]

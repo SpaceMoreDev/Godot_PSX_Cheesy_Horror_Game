@@ -14,7 +14,7 @@ func _interact_action():
 		player.canmove = false
 		player.can_look = false
 
-		var final_pos = Vector3(animation_loc.x,player.global_position.y,animation_loc.z)
+		var final_pos = Vector3(animation_loc.x, player.global_position.y, animation_loc.z)
 		var direction = (global_position - final_pos ).normalized()
 
 		player.rotation.y = atan2(direction.x,-direction.z)
