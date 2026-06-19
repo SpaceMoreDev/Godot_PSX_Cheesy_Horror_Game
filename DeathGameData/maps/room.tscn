@@ -1,23 +1,58 @@
 [gd_scene format=3 uid="uid://2xg8jjspn864"]
 
 [ext_resource type="PackedScene" uid="uid://bm6xnc2fyeyob" path="res://DeathGameData/Assets/player.tscn" id="1_q6v64"]
-[ext_resource type="PackedScene" uid="uid://b58nlpvy80iqr" path="res://DeathGameData/maps/room.fbx" id="2_g7m85"]
-[ext_resource type="PackedScene" uid="uid://bn0hgwjcrk451" path="res://DeathGameData/animations/cutscenes/sink_cutscene.tscn" id="3_g7m85"]
+[ext_resource type="PackedScene" uid="uid://buswurx2x6383" path="res://DeathGameData/maps/hotel.fbx" id="2_q6v64"]
+[ext_resource type="PackedScene" uid="uid://b5cvlhp5vjnxp" path="res://DeathGameData/maps/building.fbx" id="3_g7m85"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aeui4"]
+size = Vector2(45.01, 55.745)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_q6v64"]
+data = PackedVector3Array(22.505, 0, 27.8725, -22.505, 0, 27.8725, 22.505, 0, -27.8725, -22.505, 0, 27.8725, -22.505, 0, -27.8725, 22.505, 0, -27.8725)
 
 [node name="Node3D" type="Node3D" unique_id=344126434]
 
 [node name="Player" parent="." unique_id=1136300363 instance=ExtResource("1_q6v64")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0)
-speed = 1
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 1, 0)
+speed = 2
 jump_height = 2
 
-[node name="room" parent="." unique_id=1946182373 instance=ExtResource("2_g7m85")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6206404, -1.1920929e-07, -0.17153978)
-
-[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=925971385]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8486714, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Player" unique_id=925971385]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1331882, 0)
 omni_range = 14.446179
 
-[node name="sink_cutscene" parent="." unique_id=736916745 groups=["Interactables"] instance=ExtResource("3_g7m85")]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, 0.15964621, 0, -6.224433)
-animation_to_play = "Cutscene/sink_arm_anim"
+[node name="hotel" parent="." unique_id=625727445 instance=ExtResource("2_q6v64")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1668149997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -19.931355, 0, 0.1911087)
+mesh = SubResource("PlaneMesh_aeui4")
+skeleton = NodePath("../Player")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D" unique_id=386797406]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D" unique_id=2022729124]
+shape = SubResource("ConcavePolygonShape3D_q6v64")
+
+[node name="building" parent="." unique_id=784778837 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.844133, -11.8342085, -27.58526)
+
+[node name="building5" parent="." unique_id=1183747852 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.891733, -11.8342085, -12.792152)
+
+[node name="building6" parent="." unique_id=1903177350 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.731493, -19.180248, 14.097023)
+
+[node name="building7" parent="." unique_id=1796090531 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7862682, -10.984072, 23.665855)
+
+[node name="building8" parent="." unique_id=1771009627 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7862682, -18.873613, -24.929924)
+
+[node name="building2" parent="." unique_id=866155275 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.827715, -21.923027, -21.0582)
+
+[node name="building3" parent="." unique_id=2073006525 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.844133, -11.8342085, 30.548468)
+
+[node name="building4" parent="." unique_id=1804121012 instance=ExtResource("3_g7m85")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.827715, -26.01373, 22.228848)

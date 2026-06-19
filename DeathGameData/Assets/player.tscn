@@ -547,6 +547,9 @@ controller_path = NodePath("../../../../..")
 current = true
 fov = 60.0
 
+[node name="Arms" parent="Player_Hands/root/Skeleton3D" index="1" unique_id=905053961]
+visible = false
+
 [node name="AnimationPlayer" parent="Player_Hands" index="1" unique_id=86902639]
 libraries/Cutscene = SubResource("AnimationLibrary_jll8t")
 autoplay = &"root|Idle"
