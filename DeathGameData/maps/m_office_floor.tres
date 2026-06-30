@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://uolnj7j5qr6l"]
+
+[ext_resource type="Texture2D" uid="uid://7tiy5i8hiqxc" path="res://DeathGameData/maps/thumbnail.png" id="1_df43n"]
+
+[resource]
+albedo_texture = ExtResource("1_df43n")

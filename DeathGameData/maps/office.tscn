@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bux831j2eflmp"]
+
+[ext_resource type="PackedScene" uid="uid://d1c6cd6d2x4sd" path="res://DeathGameData/maps/Office.fbx" id="1_iw6x8"]
+
+[node name="Node3D" type="Node3D" unique_id=1084643237]
+
+[node name="Office" parent="." unique_id=52404166 instance=ExtResource("1_iw6x8")]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1964801700]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4.201917, 0)
+spot_range = 6.3464212
+spot_angle = 48.493073
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1713640820]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.69116306, 2.2652879, 0)

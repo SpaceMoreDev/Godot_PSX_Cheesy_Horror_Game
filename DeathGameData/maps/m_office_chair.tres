@@ -1,0 +1,6 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://deofl3f653apt"]
+
+[ext_resource type="Texture2D" uid="uid://qsrpviqgc8ut" path="res://DeathGameData/maps/Office_Chair Color.png" id="1_7xno3"]
+
+[resource]
+albedo_texture = ExtResource("1_7xno3")

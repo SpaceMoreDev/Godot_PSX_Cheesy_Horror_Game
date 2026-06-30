@@ -18,6 +18,9 @@ uv1_scale = Vector3(100, 100, 100)
 uv1_triplanar = true
 texture_filter = 5
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_1died"]
+data = PackedVector3Array(-0.099999994, 0.099999994, 0.074099995, -0.099999994, 0.099999994, 0, -0.099999994, -0.099999994, 0, -0.099999994, -0.099999994, 0, -0.099999994, -0.099999994, 0.074099995, -0.099999994, 0.099999994, 0.074099995, 0.099999994, 0.099999994, 0.074099995, 0.099999994, 0.099999994, 0, -0.099999994, 0.099999994, 0, -0.099999994, 0.099999994, 0, -0.099999994, 0.099999994, 0.074099995, 0.099999994, 0.099999994, 0.074099995, 0.099999994, -0.099999994, 0.074099995, 0.099999994, -0.099999994, 0, 0.099999994, 0.099999994, 0, 0.099999994, 0.099999994, 0, 0.099999994, 0.099999994, 0.074099995, 0.099999994, -0.099999994, 0.074099995, -0.099999994, -0.099999994, 0.074099995, -0.099999994, -0.099999994, 0, 0.099999994, -0.099999994, 0, 0.099999994, -0.099999994, 0, 0.099999994, -0.099999994, 0.074099995, -0.099999994, -0.099999994, 0.074099995, 0.099999994, -0.099999994, 0, -0.099999994, -0.099999994, 0, -0.099999994, 0.099999994, 0, -0.099999994, 0.099999994, 0, 0.099999994, 0.099999994, 0, 0.099999994, -0.099999994, 0, -0.099999994, -0.099999994, 0.074099995, 0.099999994, -0.099999994, 0.074099995, 0.099999994, 0.099999994, 0.074099995, 0.099999994, 0.099999994, 0.074099995, -0.099999994, 0.099999994, 0.074099995, -0.099999994, -0.099999994, 0.074099995)
+
 [node name="NavTestMap" type="Node3D" unique_id=205074486]
 
 [node name="GeneratePoints" type="Node3D" parent="." unique_id=976227983 node_paths=PackedStringArray("navigation_mesh")]
@@ -41,6 +44,11 @@ navigation_mesh = SubResource("NavigationMesh_bgm5j")
 
 [node name="Cube" parent="Map/test_room" index="0" unique_id=572164059]
 material_override = SubResource("StandardMaterial3D_1died")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/test_room/Cube" index="0" unique_id=709116363]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/test_room/Cube/StaticBody3D" unique_id=88863631]
+shape = SubResource("ConcavePolygonShape3D_1died")
 
 [node name="NavigationObstacle3D" type="NavigationObstacle3D" parent="Map" unique_id=546061268]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.729328, 0, 0)
