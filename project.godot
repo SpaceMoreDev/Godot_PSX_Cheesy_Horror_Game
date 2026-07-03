@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="PSX JAM"
-run/main_scene="uid://dese71hjl6xrn"
+run/main_scene="uid://di7dkh4p3hlf6"
 config/features=PackedStringArray("4.7", "Mobile")
 
 [autoload]
@@ -37,7 +37,8 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 folder_colors={
 "res://BarberShopData (depricated)/": "gray",
-"res://DeathGameData/": "red",
+"res://DeathGameData/": "purple",
+"res://Final idea/": "green",
 "res://ShooterGameData/": "gray",
 "res://new_navigation_system/": "yellow"
 }

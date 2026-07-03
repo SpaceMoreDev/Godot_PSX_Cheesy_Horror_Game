@@ -1,0 +1,11 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://ctvyps2aqv0fj"]
+
+[ext_resource type="Texture2D" uid="uid://d2ft7due3a0u5" path="res://Final idea/assets/textures/butterfly.png" id="1_mrudk"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.951
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_mrudk")
